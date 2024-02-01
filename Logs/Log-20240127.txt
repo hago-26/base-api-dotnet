@@ -1,0 +1,891 @@
+[27-01-2024 13:09:03.065 -07:00 INF] Executed DbCommand ("15"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"name\" = '__EFMigrationsHistory' AND \"type\" = 'table';"
+[27-01-2024 13:09:03.159 -07:00 INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"name\" = '__EFMigrationsHistory' AND \"type\" = 'table';"
+[27-01-2024 13:09:03.182 -07:00 INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT \"MigrationId\", \"ProductVersion\"
+FROM \"__EFMigrationsHistory\"
+ORDER BY \"MigrationId\";"
+[27-01-2024 13:09:03.216 -07:00 INF] No migrations were applied. The database is already up to date.
+[27-01-2024 13:09:03.381 -07:00 INF] User profile is available. Using '"/Users/andres.gonzalez/.aspnet/DataProtection-Keys"' as key repository; keys will not be encrypted at rest.
+[27-01-2024 13:09:03.599 -07:00 INF] Now listening on: "https://localhost:7141"
+[27-01-2024 13:09:03.600 -07:00 INF] Now listening on: "http://localhost:5045"
+[27-01-2024 13:09:03.611 -07:00 INF] Application started. Press Ctrl+C to shut down.
+[27-01-2024 13:09:03.614 -07:00 INF] Hosting environment: "Development"
+[27-01-2024 13:09:03.617 -07:00 INF] Content root path: "/Users/andres.gonzalez/Documents/Proyectos/Dotnet APIs/TestApi/API/"
+[27-01-2024 13:10:06.877 -07:00 INF] Request starting HTTP/1.1 POST http://localhost:5045/api/Activo/PostFromPartida application/json 129
+[27-01-2024 13:10:07.011 -07:00 INF] Executing endpoint '"API.Controllers.ActivoController.PostFromPartida (API)"'
+[27-01-2024 13:10:07.041 -07:00 INF] Route matched with "{action = \"PostFromPartida\", controller = \"Activo\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[Core.Entities.Activo]] PostFromPartida(API.DTOs.ActivoFromPartidaAddDto)" on controller "API.Controllers.ActivoController" ("API").
+[27-01-2024 13:10:20.312 -07:00 INF] Executed DbCommand ("5"ms) [Parameters=["@__id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT \"t0\".\"Id\", \"t0\".\"Cantidad\", \"t0\".\"FechaCreacion\", \"t0\".\"FechaModificacion\", \"t0\".\"NoFactura\", \"t0\".\"ProductoId\", \"t0\".\"ProveedorId\", \"t0\".\"TipoActivoId\", \"t0\".\"Id0\", \"t0\".\"Id1\", \"t0\".\"Id2\", \"a\".\"Id\", \"a\".\"Comentarios\", \"a\".\"FechaCreacion\", \"a\".\"FechaModificacion\", \"a\".\"NoFactura\", \"a\".\"NoInventario\", \"a\".\"NoSerie\", \"a\".\"PartidaId\", \"a\".\"ProductoId\", \"a\".\"ProveedorId\", \"a\".\"TipoActivoId\", \"t0\".\"MarcaProductoId\", \"t0\".\"Modelo\", \"t0\".\"Nombre\", \"t0\".\"Descripcion\", \"t0\".\"Nombre0\", \"t0\".\"Direccion\", \"t0\".\"Email\", \"t0\".\"Nombre1\", \"t0\".\"Telefono\"
+FROM (
+    SELECT \"p\".\"Id\", \"p\".\"Cantidad\", \"p\".\"FechaCreacion\", \"p\".\"FechaModificacion\", \"p\".\"NoFactura\", \"p\".\"ProductoId\", \"p\".\"ProveedorId\", \"p\".\"TipoActivoId\", \"p0\".\"Id\" AS \"Id0\", \"p0\".\"MarcaProductoId\", \"p0\".\"Modelo\", \"p0\".\"Nombre\", \"t\".\"Id\" AS \"Id1\", \"t\".\"Descripcion\", \"t\".\"Nombre\" AS \"Nombre0\", \"p1\".\"Id\" AS \"Id2\", \"p1\".\"Direccion\", \"p1\".\"Email\", \"p1\".\"Nombre\" AS \"Nombre1\", \"p1\".\"Telefono\"
+    FROM \"Partidas\" AS \"p\"
+    INNER JOIN \"Producto\" AS \"p0\" ON \"p\".\"ProductoId\" = \"p0\".\"Id\"
+    INNER JOIN \"TipoActivo\" AS \"t\" ON \"p\".\"TipoActivoId\" = \"t\".\"Id\"
+    INNER JOIN \"Proveedor\" AS \"p1\" ON \"p\".\"ProveedorId\" = \"p1\".\"Id\"
+    WHERE \"p\".\"Id\" = @__id_0
+    LIMIT 1
+) AS \"t0\"
+LEFT JOIN \"Activo\" AS \"a\" ON \"t0\".\"Id\" = \"a\".\"PartidaId\"
+ORDER BY \"t0\".\"Id\", \"t0\".\"Id0\", \"t0\".\"Id1\", \"t0\".\"Id2\""
+[27-01-2024 13:10:50.654 -07:00 INF] Executed action "API.Controllers.ActivoController.PostFromPartida (API)" in 43608.0866ms
+[27-01-2024 13:10:50.657 -07:00 INF] Executed endpoint '"API.Controllers.ActivoController.PostFromPartida (API)"'
+[27-01-2024 13:10:53.326 -07:00 ERR] Missing type map configuration or unsupported mapping.
+
+Mapping types:
+ActivoFromPartidaAddDto -> Activo
+API.DTOs.ActivoFromPartidaAddDto -> Core.Entities.Activo
+AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+ActivoFromPartidaAddDto -> Activo
+API.DTOs.ActivoFromPartidaAddDto -> Core.Entities.Activo
+   at lambda_method256(Closure , Object , Activo , ResolutionContext )
+   at API.Controllers.ActivoController.PostFromPartida(ActivoFromPartidaAddDto itemAdd) in /Users/andres.gonzalez/Documents/Proyectos/Dotnet APIs/TestApi/API/Controllers/InventarioCentinela/ActivoController.cs:line 64
+   at lambda_method16(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at AspNetCoreRateLimit.RateLimitMiddleware`1.Invoke(HttpContext context) in C:\Users\User\Documents\Github\AspNetCoreRateLimit\src\AspNetCoreRateLimit\Middleware\RateLimitMiddleware.cs:line 124
+   at Microsoft.AspNetCore.Diagnostics.StatusCodePagesMiddleware.Invoke(HttpContext context)
+   at API.Helpers.ExceptionMiddleware.InvokeAsync(HttpContext context) in /Users/andres.gonzalez/Documents/Proyectos/Dotnet APIs/TestApi/API/Helpers/ErrorResponse/ExceptionMiddleware..cs:line 24
+[27-01-2024 13:10:53.420 -07:00 INF] Request finished HTTP/1.1 POST http://localhost:5045/api/Activo/PostFromPartida application/json 129 - 500 - application/json 46547.4813ms
+[27-01-2024 13:13:24.429 -07:00 INF] Executed DbCommand ("11"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"name\" = '__EFMigrationsHistory' AND \"type\" = 'table';"
+[27-01-2024 13:13:24.508 -07:00 INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"name\" = '__EFMigrationsHistory' AND \"type\" = 'table';"
+[27-01-2024 13:13:24.528 -07:00 INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT \"MigrationId\", \"ProductVersion\"
+FROM \"__EFMigrationsHistory\"
+ORDER BY \"MigrationId\";"
+[27-01-2024 13:13:24.556 -07:00 INF] No migrations were applied. The database is already up to date.
+[27-01-2024 13:13:24.673 -07:00 INF] User profile is available. Using '"/Users/andres.gonzalez/.aspnet/DataProtection-Keys"' as key repository; keys will not be encrypted at rest.
+[27-01-2024 13:13:24.822 -07:00 INF] Now listening on: "https://localhost:7141"
+[27-01-2024 13:13:24.823 -07:00 INF] Now listening on: "http://localhost:5045"
+[27-01-2024 13:13:24.830 -07:00 INF] Application started. Press Ctrl+C to shut down.
+[27-01-2024 13:13:24.832 -07:00 INF] Hosting environment: "Development"
+[27-01-2024 13:13:24.834 -07:00 INF] Content root path: "/Users/andres.gonzalez/Documents/Proyectos/Dotnet APIs/TestApi/API/"
+[27-01-2024 13:13:36.908 -07:00 INF] Request starting HTTP/1.1 POST http://localhost:5045/api/Activo/PostFromPartida application/json 129
+[27-01-2024 13:13:37.031 -07:00 INF] Executing endpoint '"API.Controllers.ActivoController.PostFromPartida (API)"'
+[27-01-2024 13:13:37.062 -07:00 INF] Route matched with "{action = \"PostFromPartida\", controller = \"Activo\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[Core.Entities.Activo]] PostFromPartida(API.DTOs.ActivoFromPartidaAddDto)" on controller "API.Controllers.ActivoController" ("API").
+[27-01-2024 13:13:40.315 -07:00 INF] Executed DbCommand ("5"ms) [Parameters=["@__id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT \"t0\".\"Id\", \"t0\".\"Cantidad\", \"t0\".\"FechaCreacion\", \"t0\".\"FechaModificacion\", \"t0\".\"NoFactura\", \"t0\".\"ProductoId\", \"t0\".\"ProveedorId\", \"t0\".\"TipoActivoId\", \"t0\".\"Id0\", \"t0\".\"Id1\", \"t0\".\"Id2\", \"a\".\"Id\", \"a\".\"Comentarios\", \"a\".\"FechaCreacion\", \"a\".\"FechaModificacion\", \"a\".\"NoFactura\", \"a\".\"NoInventario\", \"a\".\"NoSerie\", \"a\".\"PartidaId\", \"a\".\"ProductoId\", \"a\".\"ProveedorId\", \"a\".\"TipoActivoId\", \"t0\".\"MarcaProductoId\", \"t0\".\"Modelo\", \"t0\".\"Nombre\", \"t0\".\"Descripcion\", \"t0\".\"Nombre0\", \"t0\".\"Direccion\", \"t0\".\"Email\", \"t0\".\"Nombre1\", \"t0\".\"Telefono\"
+FROM (
+    SELECT \"p\".\"Id\", \"p\".\"Cantidad\", \"p\".\"FechaCreacion\", \"p\".\"FechaModificacion\", \"p\".\"NoFactura\", \"p\".\"ProductoId\", \"p\".\"ProveedorId\", \"p\".\"TipoActivoId\", \"p0\".\"Id\" AS \"Id0\", \"p0\".\"MarcaProductoId\", \"p0\".\"Modelo\", \"p0\".\"Nombre\", \"t\".\"Id\" AS \"Id1\", \"t\".\"Descripcion\", \"t\".\"Nombre\" AS \"Nombre0\", \"p1\".\"Id\" AS \"Id2\", \"p1\".\"Direccion\", \"p1\".\"Email\", \"p1\".\"Nombre\" AS \"Nombre1\", \"p1\".\"Telefono\"
+    FROM \"Partidas\" AS \"p\"
+    INNER JOIN \"Producto\" AS \"p0\" ON \"p\".\"ProductoId\" = \"p0\".\"Id\"
+    INNER JOIN \"TipoActivo\" AS \"t\" ON \"p\".\"TipoActivoId\" = \"t\".\"Id\"
+    INNER JOIN \"Proveedor\" AS \"p1\" ON \"p\".\"ProveedorId\" = \"p1\".\"Id\"
+    WHERE \"p\".\"Id\" = @__id_0
+    LIMIT 1
+) AS \"t0\"
+LEFT JOIN \"Activo\" AS \"a\" ON \"t0\".\"Id\" = \"a\".\"PartidaId\"
+ORDER BY \"t0\".\"Id\", \"t0\".\"Id0\", \"t0\".\"Id1\", \"t0\".\"Id2\""
+[27-01-2024 13:14:49.968 -07:00 INF] Request starting HTTP/1.1 GET http://localhost:5045/api/Partidas - -
+[27-01-2024 13:14:49.971 -07:00 INF] Executing endpoint '"API.Controllers.PartidasController.Get (API)"'
+[27-01-2024 13:14:49.976 -07:00 INF] Route matched with "{action = \"Get\", controller = \"Partidas\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[API.Helpers.Pager`1[API.DTOs.PartidasDto]]] Get(API.Helpers.Params)" on controller "API.Controllers.PartidasController" ("API").
+[27-01-2024 13:14:56.894 -07:00 INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM \"Partidas\" AS \"p\""
+[27-01-2024 13:14:56.902 -07:00 WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+[27-01-2024 13:14:56.903 -07:00 WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+[27-01-2024 13:14:56.914 -07:00 INF] Executed DbCommand ("0"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT \"t\".\"Id\", \"t\".\"Cantidad\", \"t\".\"FechaCreacion\", \"t\".\"FechaModificacion\", \"t\".\"NoFactura\", \"t\".\"ProductoId\", \"t\".\"ProveedorId\", \"t\".\"TipoActivoId\", \"p0\".\"Id\", \"t0\".\"Id\", \"p1\".\"Id\", \"a\".\"Id\", \"a\".\"Comentarios\", \"a\".\"FechaCreacion\", \"a\".\"FechaModificacion\", \"a\".\"NoFactura\", \"a\".\"NoInventario\", \"a\".\"NoSerie\", \"a\".\"PartidaId\", \"a\".\"ProductoId\", \"a\".\"ProveedorId\", \"a\".\"TipoActivoId\", \"p0\".\"MarcaProductoId\", \"p0\".\"Modelo\", \"p0\".\"Nombre\", \"t0\".\"Descripcion\", \"t0\".\"Nombre\", \"p1\".\"Direccion\", \"p1\".\"Email\", \"p1\".\"Nombre\", \"p1\".\"Telefono\"
+FROM (
+    SELECT \"p\".\"Id\", \"p\".\"Cantidad\", \"p\".\"FechaCreacion\", \"p\".\"FechaModificacion\", \"p\".\"NoFactura\", \"p\".\"ProductoId\", \"p\".\"ProveedorId\", \"p\".\"TipoActivoId\"
+    FROM \"Partidas\" AS \"p\"
+    LIMIT @__p_1 OFFSET @__p_0
+) AS \"t\"
+INNER JOIN \"Producto\" AS \"p0\" ON \"t\".\"ProductoId\" = \"p0\".\"Id\"
+INNER JOIN \"TipoActivo\" AS \"t0\" ON \"t\".\"TipoActivoId\" = \"t0\".\"Id\"
+INNER JOIN \"Proveedor\" AS \"p1\" ON \"t\".\"ProveedorId\" = \"p1\".\"Id\"
+LEFT JOIN \"Activo\" AS \"a\" ON \"t\".\"Id\" = \"a\".\"PartidaId\"
+ORDER BY \"t\".\"Id\", \"p0\".\"Id\", \"t0\".\"Id\", \"p1\".\"Id\""
+[27-01-2024 13:14:56.934 -07:00 ERR] Failed executing DbCommand ("4"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (Size = 24), @p2='?' (Size = 9), @p3='?' (Size = 10), @p4='?' (Size = 10), @p5='?' (DbType = Int32), @p6='?' (DbType = Int32), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"Activo\" (\"Id\", \"Comentarios\", \"NoFactura\", \"NoInventario\", \"NoSerie\", \"PartidaId\", \"ProductoId\", \"ProveedorId\", \"TipoActivoId\")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8)
+RETURNING \"FechaCreacion\", \"FechaModificacion\";"
+[27-01-2024 13:14:56.935 -07:00 INF] Executing "ObjectResult", writing value of type '"API.Helpers.Pager`1[[API.DTOs.PartidasDto, API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'.
+[27-01-2024 13:14:56.960 -07:00 ERR] An exception occurred in the database while saving changes for context type '"Infrastructure.Data.BaseContext"'."
+""Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 19: 'UNIQUE constraint failed: Activo.Id'.
+   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+   at Microsoft.Data.Sqlite.SqliteDataReader.NextResult()
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)"
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 19: 'UNIQUE constraint failed: Activo.Id'.
+   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+   at Microsoft.Data.Sqlite.SqliteDataReader.NextResult()
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+[27-01-2024 13:14:57.056 -07:00 INF] Executed action "API.Controllers.ActivoController.PostFromPartida (API)" in 79988.8503ms
+[27-01-2024 13:14:57.058 -07:00 INF] Executed endpoint '"API.Controllers.ActivoController.PostFromPartida (API)"'
+[27-01-2024 13:14:59.081 -07:00 ERR] An error occurred while saving the entity changes. See the inner exception for details.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 19: 'UNIQUE constraint failed: Activo.Id'.
+   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+   at Microsoft.Data.Sqlite.SqliteDataReader.NextResult()
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at UnitOfWork.CompleteAsync() in /Users/andres.gonzalez/Documents/Proyectos/Dotnet APIs/TestApi/Infrastructure/UnitOfWork/UnitOfWork.cs:line 65
+   at API.Controllers.ActivoController.PostFromPartida(ActivoFromPartidaAddDto itemAdd) in /Users/andres.gonzalez/Documents/Proyectos/Dotnet APIs/TestApi/API/Controllers/InventarioCentinela/ActivoController.cs:line 71
+   at lambda_method16(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at AspNetCoreRateLimit.RateLimitMiddleware`1.Invoke(HttpContext context) in C:\Users\User\Documents\Github\AspNetCoreRateLimit\src\AspNetCoreRateLimit\Middleware\RateLimitMiddleware.cs:line 124
+   at Microsoft.AspNetCore.Diagnostics.StatusCodePagesMiddleware.Invoke(HttpContext context)
+   at API.Helpers.ExceptionMiddleware.InvokeAsync(HttpContext context) in /Users/andres.gonzalez/Documents/Proyectos/Dotnet APIs/TestApi/API/Helpers/ErrorResponse/ExceptionMiddleware..cs:line 24
+[27-01-2024 13:14:59.083 -07:00 INF] Executed action "API.Controllers.PartidasController.Get (API)" in 9107.7385ms
+[27-01-2024 13:14:59.083 -07:00 INF] Executed endpoint '"API.Controllers.PartidasController.Get (API)"'
+[27-01-2024 13:14:59.088 -07:00 INF] Request finished HTTP/1.1 GET http://localhost:5045/api/Partidas - - - 200 - application/json;+charset=utf-8 9119.5435ms
+[27-01-2024 13:14:59.092 -07:00 INF] Request finished HTTP/1.1 POST http://localhost:5045/api/Activo/PostFromPartida application/json 129 - 500 - application/json 82190.1932ms
+[27-01-2024 13:17:54.252 -07:00 INF] Request starting HTTP/1.1 POST http://localhost:5045/api/Activo/PostFromPartida application/json 129
+[27-01-2024 13:17:54.258 -07:00 INF] Executing endpoint '"API.Controllers.ActivoController.PostFromPartida (API)"'
+[27-01-2024 13:17:54.259 -07:00 INF] Route matched with "{action = \"PostFromPartida\", controller = \"Activo\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[Core.Entities.Activo]] PostFromPartida(API.DTOs.ActivoFromPartidaAddDto)" on controller "API.Controllers.ActivoController" ("API").
+[27-01-2024 13:17:57.112 -07:00 INF] Executed DbCommand ("0"ms) [Parameters=["@__id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT \"t0\".\"Id\", \"t0\".\"Cantidad\", \"t0\".\"FechaCreacion\", \"t0\".\"FechaModificacion\", \"t0\".\"NoFactura\", \"t0\".\"ProductoId\", \"t0\".\"ProveedorId\", \"t0\".\"TipoActivoId\", \"t0\".\"Id0\", \"t0\".\"Id1\", \"t0\".\"Id2\", \"a\".\"Id\", \"a\".\"Comentarios\", \"a\".\"FechaCreacion\", \"a\".\"FechaModificacion\", \"a\".\"NoFactura\", \"a\".\"NoInventario\", \"a\".\"NoSerie\", \"a\".\"PartidaId\", \"a\".\"ProductoId\", \"a\".\"ProveedorId\", \"a\".\"TipoActivoId\", \"t0\".\"MarcaProductoId\", \"t0\".\"Modelo\", \"t0\".\"Nombre\", \"t0\".\"Descripcion\", \"t0\".\"Nombre0\", \"t0\".\"Direccion\", \"t0\".\"Email\", \"t0\".\"Nombre1\", \"t0\".\"Telefono\"
+FROM (
+    SELECT \"p\".\"Id\", \"p\".\"Cantidad\", \"p\".\"FechaCreacion\", \"p\".\"FechaModificacion\", \"p\".\"NoFactura\", \"p\".\"ProductoId\", \"p\".\"ProveedorId\", \"p\".\"TipoActivoId\", \"p0\".\"Id\" AS \"Id0\", \"p0\".\"MarcaProductoId\", \"p0\".\"Modelo\", \"p0\".\"Nombre\", \"t\".\"Id\" AS \"Id1\", \"t\".\"Descripcion\", \"t\".\"Nombre\" AS \"Nombre0\", \"p1\".\"Id\" AS \"Id2\", \"p1\".\"Direccion\", \"p1\".\"Email\", \"p1\".\"Nombre\" AS \"Nombre1\", \"p1\".\"Telefono\"
+    FROM \"Partidas\" AS \"p\"
+    INNER JOIN \"Producto\" AS \"p0\" ON \"p\".\"ProductoId\" = \"p0\".\"Id\"
+    INNER JOIN \"TipoActivo\" AS \"t\" ON \"p\".\"TipoActivoId\" = \"t\".\"Id\"
+    INNER JOIN \"Proveedor\" AS \"p1\" ON \"p\".\"ProveedorId\" = \"p1\".\"Id\"
+    WHERE \"p\".\"Id\" = @__id_0
+    LIMIT 1
+) AS \"t0\"
+LEFT JOIN \"Activo\" AS \"a\" ON \"t0\".\"Id\" = \"a\".\"PartidaId\"
+ORDER BY \"t0\".\"Id\", \"t0\".\"Id0\", \"t0\".\"Id1\", \"t0\".\"Id2\""
+[27-01-2024 13:18:30.231 -07:00 ERR] Failed executing DbCommand ("1"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (Size = 24), @p2='?' (Size = 9), @p3='?' (Size = 10), @p4='?' (Size = 10), @p5='?' (DbType = Int32), @p6='?' (DbType = Int32), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"Activo\" (\"Id\", \"Comentarios\", \"NoFactura\", \"NoInventario\", \"NoSerie\", \"PartidaId\", \"ProductoId\", \"ProveedorId\", \"TipoActivoId\")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8)
+RETURNING \"FechaCreacion\", \"FechaModificacion\";"
+[27-01-2024 13:18:30.236 -07:00 ERR] An exception occurred in the database while saving changes for context type '"Infrastructure.Data.BaseContext"'."
+""Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 19: 'UNIQUE constraint failed: Activo.Id'.
+   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+   at Microsoft.Data.Sqlite.SqliteDataReader.NextResult()
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)"
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 19: 'UNIQUE constraint failed: Activo.Id'.
+   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+   at Microsoft.Data.Sqlite.SqliteDataReader.NextResult()
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+[27-01-2024 13:18:30.306 -07:00 INF] Executed action "API.Controllers.ActivoController.PostFromPartida (API)" in 36047.2141ms
+[27-01-2024 13:18:30.307 -07:00 INF] Executed endpoint '"API.Controllers.ActivoController.PostFromPartida (API)"'
+[27-01-2024 13:18:32.655 -07:00 ERR] An error occurred while saving the entity changes. See the inner exception for details.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 19: 'UNIQUE constraint failed: Activo.Id'.
+   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+   at Microsoft.Data.Sqlite.SqliteDataReader.NextResult()
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at UnitOfWork.CompleteAsync() in /Users/andres.gonzalez/Documents/Proyectos/Dotnet APIs/TestApi/Infrastructure/UnitOfWork/UnitOfWork.cs:line 65
+   at API.Controllers.ActivoController.PostFromPartida(ActivoFromPartidaAddDto itemAdd) in /Users/andres.gonzalez/Documents/Proyectos/Dotnet APIs/TestApi/API/Controllers/InventarioCentinela/ActivoController.cs:line 71
+   at lambda_method16(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at AspNetCoreRateLimit.RateLimitMiddleware`1.Invoke(HttpContext context) in C:\Users\User\Documents\Github\AspNetCoreRateLimit\src\AspNetCoreRateLimit\Middleware\RateLimitMiddleware.cs:line 124
+   at Microsoft.AspNetCore.Diagnostics.StatusCodePagesMiddleware.Invoke(HttpContext context)
+   at API.Helpers.ExceptionMiddleware.InvokeAsync(HttpContext context) in /Users/andres.gonzalez/Documents/Proyectos/Dotnet APIs/TestApi/API/Helpers/ErrorResponse/ExceptionMiddleware..cs:line 24
+[27-01-2024 13:18:32.658 -07:00 INF] Request finished HTTP/1.1 POST http://localhost:5045/api/Activo/PostFromPartida application/json 129 - 500 - application/json 38406.1942ms
+[27-01-2024 13:19:06.838 -07:00 INF] Request starting HTTP/1.1 GET http://localhost:5045/api/Partidas - -
+[27-01-2024 13:19:06.869 -07:00 INF] Executing endpoint '"API.Controllers.PartidasController.Get (API)"'
+[27-01-2024 13:19:06.869 -07:00 INF] Route matched with "{action = \"Get\", controller = \"Partidas\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[API.Helpers.Pager`1[API.DTOs.PartidasDto]]] Get(API.Helpers.Params)" on controller "API.Controllers.PartidasController" ("API").
+[27-01-2024 13:19:06.874 -07:00 INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM \"Partidas\" AS \"p\""
+[27-01-2024 13:19:06.878 -07:00 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT \"t\".\"Id\", \"t\".\"Cantidad\", \"t\".\"FechaCreacion\", \"t\".\"FechaModificacion\", \"t\".\"NoFactura\", \"t\".\"ProductoId\", \"t\".\"ProveedorId\", \"t\".\"TipoActivoId\", \"p0\".\"Id\", \"t0\".\"Id\", \"p1\".\"Id\", \"a\".\"Id\", \"a\".\"Comentarios\", \"a\".\"FechaCreacion\", \"a\".\"FechaModificacion\", \"a\".\"NoFactura\", \"a\".\"NoInventario\", \"a\".\"NoSerie\", \"a\".\"PartidaId\", \"a\".\"ProductoId\", \"a\".\"ProveedorId\", \"a\".\"TipoActivoId\", \"p0\".\"MarcaProductoId\", \"p0\".\"Modelo\", \"p0\".\"Nombre\", \"t0\".\"Descripcion\", \"t0\".\"Nombre\", \"p1\".\"Direccion\", \"p1\".\"Email\", \"p1\".\"Nombre\", \"p1\".\"Telefono\"
+FROM (
+    SELECT \"p\".\"Id\", \"p\".\"Cantidad\", \"p\".\"FechaCreacion\", \"p\".\"FechaModificacion\", \"p\".\"NoFactura\", \"p\".\"ProductoId\", \"p\".\"ProveedorId\", \"p\".\"TipoActivoId\"
+    FROM \"Partidas\" AS \"p\"
+    LIMIT @__p_1 OFFSET @__p_0
+) AS \"t\"
+INNER JOIN \"Producto\" AS \"p0\" ON \"t\".\"ProductoId\" = \"p0\".\"Id\"
+INNER JOIN \"TipoActivo\" AS \"t0\" ON \"t\".\"TipoActivoId\" = \"t0\".\"Id\"
+INNER JOIN \"Proveedor\" AS \"p1\" ON \"t\".\"ProveedorId\" = \"p1\".\"Id\"
+LEFT JOIN \"Activo\" AS \"a\" ON \"t\".\"Id\" = \"a\".\"PartidaId\"
+ORDER BY \"t\".\"Id\", \"p0\".\"Id\", \"t0\".\"Id\", \"p1\".\"Id\""
+[27-01-2024 13:19:06.880 -07:00 INF] Executing "ObjectResult", writing value of type '"API.Helpers.Pager`1[[API.DTOs.PartidasDto, API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'.
+[27-01-2024 13:19:06.881 -07:00 INF] Executed action "API.Controllers.PartidasController.Get (API)" in 11.2753ms
+[27-01-2024 13:19:06.881 -07:00 INF] Executed endpoint '"API.Controllers.PartidasController.Get (API)"'
+[27-01-2024 13:19:06.881 -07:00 INF] Request finished HTTP/1.1 GET http://localhost:5045/api/Partidas - - - 200 - application/json;+charset=utf-8 95.7951ms
+[27-01-2024 13:19:30.041 -07:00 INF] Request starting HTTP/1.1 POST http://localhost:5045/api/Activo/PostFromPartida application/json 129
+[27-01-2024 13:19:30.042 -07:00 INF] Executing endpoint '"API.Controllers.ActivoController.PostFromPartida (API)"'
+[27-01-2024 13:19:30.042 -07:00 INF] Route matched with "{action = \"PostFromPartida\", controller = \"Activo\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[Core.Entities.Activo]] PostFromPartida(API.DTOs.ActivoFromPartidaAddDto)" on controller "API.Controllers.ActivoController" ("API").
+[27-01-2024 13:19:36.648 -07:00 INF] Executed DbCommand ("10"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"name\" = '__EFMigrationsHistory' AND \"type\" = 'table';"
+[27-01-2024 13:19:36.729 -07:00 INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"name\" = '__EFMigrationsHistory' AND \"type\" = 'table';"
+[27-01-2024 13:19:36.750 -07:00 INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT \"MigrationId\", \"ProductVersion\"
+FROM \"__EFMigrationsHistory\"
+ORDER BY \"MigrationId\";"
+[27-01-2024 13:19:36.779 -07:00 INF] No migrations were applied. The database is already up to date.
+[27-01-2024 13:19:36.904 -07:00 INF] User profile is available. Using '"/Users/andres.gonzalez/.aspnet/DataProtection-Keys"' as key repository; keys will not be encrypted at rest.
+[27-01-2024 13:19:37.099 -07:00 INF] Now listening on: "https://localhost:7141"
+[27-01-2024 13:19:37.100 -07:00 INF] Now listening on: "http://localhost:5045"
+[27-01-2024 13:19:37.108 -07:00 INF] Application started. Press Ctrl+C to shut down.
+[27-01-2024 13:19:37.109 -07:00 INF] Hosting environment: "Development"
+[27-01-2024 13:19:37.110 -07:00 INF] Content root path: "/Users/andres.gonzalez/Documents/Proyectos/Dotnet APIs/TestApi/API/"
+[27-01-2024 13:19:58.084 -07:00 INF] Request starting HTTP/1.1 POST http://localhost:5045/api/Activo/PostFromPartida application/json 129
+[27-01-2024 13:19:58.208 -07:00 INF] Executing endpoint '"API.Controllers.ActivoController.PostFromPartida (API)"'
+[27-01-2024 13:19:58.239 -07:00 INF] Route matched with "{action = \"PostFromPartida\", controller = \"Activo\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[Core.Entities.Activo]] PostFromPartida(API.DTOs.ActivoFromPartidaAddDto)" on controller "API.Controllers.ActivoController" ("API").
+[27-01-2024 13:20:01.909 -07:00 INF] Executed DbCommand ("4"ms) [Parameters=["@__id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT \"t0\".\"Id\", \"t0\".\"Cantidad\", \"t0\".\"FechaCreacion\", \"t0\".\"FechaModificacion\", \"t0\".\"NoFactura\", \"t0\".\"ProductoId\", \"t0\".\"ProveedorId\", \"t0\".\"TipoActivoId\", \"t0\".\"Id0\", \"t0\".\"Id1\", \"t0\".\"Id2\", \"a\".\"Id\", \"a\".\"Comentarios\", \"a\".\"FechaCreacion\", \"a\".\"FechaModificacion\", \"a\".\"NoFactura\", \"a\".\"NoInventario\", \"a\".\"NoSerie\", \"a\".\"PartidaId\", \"a\".\"ProductoId\", \"a\".\"ProveedorId\", \"a\".\"TipoActivoId\", \"t0\".\"MarcaProductoId\", \"t0\".\"Modelo\", \"t0\".\"Nombre\", \"t0\".\"Descripcion\", \"t0\".\"Nombre0\", \"t0\".\"Direccion\", \"t0\".\"Email\", \"t0\".\"Nombre1\", \"t0\".\"Telefono\"
+FROM (
+    SELECT \"p\".\"Id\", \"p\".\"Cantidad\", \"p\".\"FechaCreacion\", \"p\".\"FechaModificacion\", \"p\".\"NoFactura\", \"p\".\"ProductoId\", \"p\".\"ProveedorId\", \"p\".\"TipoActivoId\", \"p0\".\"Id\" AS \"Id0\", \"p0\".\"MarcaProductoId\", \"p0\".\"Modelo\", \"p0\".\"Nombre\", \"t\".\"Id\" AS \"Id1\", \"t\".\"Descripcion\", \"t\".\"Nombre\" AS \"Nombre0\", \"p1\".\"Id\" AS \"Id2\", \"p1\".\"Direccion\", \"p1\".\"Email\", \"p1\".\"Nombre\" AS \"Nombre1\", \"p1\".\"Telefono\"
+    FROM \"Partidas\" AS \"p\"
+    INNER JOIN \"Producto\" AS \"p0\" ON \"p\".\"ProductoId\" = \"p0\".\"Id\"
+    INNER JOIN \"TipoActivo\" AS \"t\" ON \"p\".\"TipoActivoId\" = \"t\".\"Id\"
+    INNER JOIN \"Proveedor\" AS \"p1\" ON \"p\".\"ProveedorId\" = \"p1\".\"Id\"
+    WHERE \"p\".\"Id\" = @__id_0
+    LIMIT 1
+) AS \"t0\"
+LEFT JOIN \"Activo\" AS \"a\" ON \"t0\".\"Id\" = \"a\".\"PartidaId\"
+ORDER BY \"t0\".\"Id\", \"t0\".\"Id0\", \"t0\".\"Id1\", \"t0\".\"Id2\""
+[27-01-2024 13:20:07.195 -07:00 ERR] Failed executing DbCommand ("3"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (Size = 24), @p2='?' (Size = 9), @p3='?' (Size = 10), @p4='?' (Size = 10), @p5='?' (DbType = Int32), @p6='?' (DbType = Int32), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"Activo\" (\"Id\", \"Comentarios\", \"NoFactura\", \"NoInventario\", \"NoSerie\", \"PartidaId\", \"ProductoId\", \"ProveedorId\", \"TipoActivoId\")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8)
+RETURNING \"FechaCreacion\", \"FechaModificacion\";"
+[27-01-2024 13:20:07.221 -07:00 ERR] An exception occurred in the database while saving changes for context type '"Infrastructure.Data.BaseContext"'."
+""Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 19: 'UNIQUE constraint failed: Activo.Id'.
+   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+   at Microsoft.Data.Sqlite.SqliteDataReader.NextResult()
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)"
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 19: 'UNIQUE constraint failed: Activo.Id'.
+   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+   at Microsoft.Data.Sqlite.SqliteDataReader.NextResult()
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+[27-01-2024 13:20:07.310 -07:00 INF] Executed action "API.Controllers.ActivoController.PostFromPartida (API)" in 9066.4547ms
+[27-01-2024 13:20:07.313 -07:00 INF] Executed endpoint '"API.Controllers.ActivoController.PostFromPartida (API)"'
+[27-01-2024 13:20:38.682 -07:00 ERR] An error occurred while saving the entity changes. See the inner exception for details.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 19: 'UNIQUE constraint failed: Activo.Id'.
+   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+   at Microsoft.Data.Sqlite.SqliteDataReader.NextResult()
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at UnitOfWork.CompleteAsync() in /Users/andres.gonzalez/Documents/Proyectos/Dotnet APIs/TestApi/Infrastructure/UnitOfWork/UnitOfWork.cs:line 65
+   at API.Controllers.ActivoController.PostFromPartida(ActivoFromPartidaAddDto itemAdd) in /Users/andres.gonzalez/Documents/Proyectos/Dotnet APIs/TestApi/API/Controllers/InventarioCentinela/ActivoController.cs:line 71
+   at lambda_method16(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at AspNetCoreRateLimit.RateLimitMiddleware`1.Invoke(HttpContext context) in C:\Users\User\Documents\Github\AspNetCoreRateLimit\src\AspNetCoreRateLimit\Middleware\RateLimitMiddleware.cs:line 124
+   at Microsoft.AspNetCore.Diagnostics.StatusCodePagesMiddleware.Invoke(HttpContext context)
+   at API.Helpers.ExceptionMiddleware.InvokeAsync(HttpContext context) in /Users/andres.gonzalez/Documents/Proyectos/Dotnet APIs/TestApi/API/Helpers/ErrorResponse/ExceptionMiddleware..cs:line 24
+[27-01-2024 13:20:48.136 -07:00 INF] Request finished HTTP/1.1 POST http://localhost:5045/api/Activo/PostFromPartida application/json 129 - 500 - application/json 50055.7207ms
+[27-01-2024 13:23:52.055 -07:00 INF] Request starting HTTP/1.1 POST http://localhost:5045/api/Activo/PostFromPartida application/json 129
+[27-01-2024 13:23:52.062 -07:00 INF] Executing endpoint '"API.Controllers.ActivoController.PostFromPartida (API)"'
+[27-01-2024 13:23:52.062 -07:00 INF] Route matched with "{action = \"PostFromPartida\", controller = \"Activo\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[Core.Entities.Activo]] PostFromPartida(API.DTOs.ActivoFromPartidaAddDto)" on controller "API.Controllers.ActivoController" ("API").
+[27-01-2024 13:23:55.531 -07:00 INF] Executed DbCommand ("0"ms) [Parameters=["@__id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT \"t0\".\"Id\", \"t0\".\"Cantidad\", \"t0\".\"FechaCreacion\", \"t0\".\"FechaModificacion\", \"t0\".\"NoFactura\", \"t0\".\"ProductoId\", \"t0\".\"ProveedorId\", \"t0\".\"TipoActivoId\", \"t0\".\"Id0\", \"t0\".\"Id1\", \"t0\".\"Id2\", \"a\".\"Id\", \"a\".\"Comentarios\", \"a\".\"FechaCreacion\", \"a\".\"FechaModificacion\", \"a\".\"NoFactura\", \"a\".\"NoInventario\", \"a\".\"NoSerie\", \"a\".\"PartidaId\", \"a\".\"ProductoId\", \"a\".\"ProveedorId\", \"a\".\"TipoActivoId\", \"t0\".\"MarcaProductoId\", \"t0\".\"Modelo\", \"t0\".\"Nombre\", \"t0\".\"Descripcion\", \"t0\".\"Nombre0\", \"t0\".\"Direccion\", \"t0\".\"Email\", \"t0\".\"Nombre1\", \"t0\".\"Telefono\"
+FROM (
+    SELECT \"p\".\"Id\", \"p\".\"Cantidad\", \"p\".\"FechaCreacion\", \"p\".\"FechaModificacion\", \"p\".\"NoFactura\", \"p\".\"ProductoId\", \"p\".\"ProveedorId\", \"p\".\"TipoActivoId\", \"p0\".\"Id\" AS \"Id0\", \"p0\".\"MarcaProductoId\", \"p0\".\"Modelo\", \"p0\".\"Nombre\", \"t\".\"Id\" AS \"Id1\", \"t\".\"Descripcion\", \"t\".\"Nombre\" AS \"Nombre0\", \"p1\".\"Id\" AS \"Id2\", \"p1\".\"Direccion\", \"p1\".\"Email\", \"p1\".\"Nombre\" AS \"Nombre1\", \"p1\".\"Telefono\"
+    FROM \"Partidas\" AS \"p\"
+    INNER JOIN \"Producto\" AS \"p0\" ON \"p\".\"ProductoId\" = \"p0\".\"Id\"
+    INNER JOIN \"TipoActivo\" AS \"t\" ON \"p\".\"TipoActivoId\" = \"t\".\"Id\"
+    INNER JOIN \"Proveedor\" AS \"p1\" ON \"p\".\"ProveedorId\" = \"p1\".\"Id\"
+    WHERE \"p\".\"Id\" = @__id_0
+    LIMIT 1
+) AS \"t0\"
+LEFT JOIN \"Activo\" AS \"a\" ON \"t0\".\"Id\" = \"a\".\"PartidaId\"
+ORDER BY \"t0\".\"Id\", \"t0\".\"Id0\", \"t0\".\"Id1\", \"t0\".\"Id2\""
+[27-01-2024 13:25:00.148 -07:00 ERR] Failed executing DbCommand ("1"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (Size = 24), @p2='?' (Size = 9), @p3='?' (Size = 10), @p4='?' (Size = 10), @p5='?' (DbType = Int32), @p6='?' (DbType = Int32), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"Activo\" (\"Id\", \"Comentarios\", \"NoFactura\", \"NoInventario\", \"NoSerie\", \"PartidaId\", \"ProductoId\", \"ProveedorId\", \"TipoActivoId\")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8)
+RETURNING \"FechaCreacion\", \"FechaModificacion\";"
+[27-01-2024 13:25:00.152 -07:00 ERR] An exception occurred in the database while saving changes for context type '"Infrastructure.Data.BaseContext"'."
+""Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 19: 'UNIQUE constraint failed: Activo.Id'.
+   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+   at Microsoft.Data.Sqlite.SqliteDataReader.NextResult()
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)"
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 19: 'UNIQUE constraint failed: Activo.Id'.
+   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+   at Microsoft.Data.Sqlite.SqliteDataReader.NextResult()
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+[27-01-2024 13:25:00.222 -07:00 INF] Executed action "API.Controllers.ActivoController.PostFromPartida (API)" in 68159.7318ms
+[27-01-2024 13:25:00.224 -07:00 INF] Executed endpoint '"API.Controllers.ActivoController.PostFromPartida (API)"'
+[27-01-2024 13:26:22.031 -07:00 ERR] An error occurred while saving the entity changes. See the inner exception for details.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 19: 'UNIQUE constraint failed: Activo.Id'.
+   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+   at Microsoft.Data.Sqlite.SqliteDataReader.NextResult()
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at UnitOfWork.CompleteAsync() in /Users/andres.gonzalez/Documents/Proyectos/Dotnet APIs/TestApi/Infrastructure/UnitOfWork/UnitOfWork.cs:line 65
+   at API.Controllers.ActivoController.PostFromPartida(ActivoFromPartidaAddDto itemAdd) in /Users/andres.gonzalez/Documents/Proyectos/Dotnet APIs/TestApi/API/Controllers/InventarioCentinela/ActivoController.cs:line 71
+   at lambda_method16(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at AspNetCoreRateLimit.RateLimitMiddleware`1.Invoke(HttpContext context) in C:\Users\User\Documents\Github\AspNetCoreRateLimit\src\AspNetCoreRateLimit\Middleware\RateLimitMiddleware.cs:line 124
+   at Microsoft.AspNetCore.Diagnostics.StatusCodePagesMiddleware.Invoke(HttpContext context)
+   at API.Helpers.ExceptionMiddleware.InvokeAsync(HttpContext context) in /Users/andres.gonzalez/Documents/Proyectos/Dotnet APIs/TestApi/API/Helpers/ErrorResponse/ExceptionMiddleware..cs:line 24
+[27-01-2024 13:26:31.871 -07:00 INF] Request finished HTTP/1.1 POST http://localhost:5045/api/Activo/PostFromPartida application/json 129 - 500 - application/json 159816.6786ms
+[27-01-2024 13:32:16.092 -07:00 INF] Request starting HTTP/1.1 POST http://localhost:5045/api/Activo/PostFromPartida application/json 129
+[27-01-2024 13:32:16.099 -07:00 INF] Executing endpoint '"API.Controllers.ActivoController.PostFromPartida (API)"'
+[27-01-2024 13:32:16.100 -07:00 INF] Route matched with "{action = \"PostFromPartida\", controller = \"Activo\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[Core.Entities.Activo]] PostFromPartida(API.DTOs.ActivoFromPartidaAddDto)" on controller "API.Controllers.ActivoController" ("API").
+[27-01-2024 13:32:20.362 -07:00 INF] Executed DbCommand ("1"ms) [Parameters=["@__id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT \"t0\".\"Id\", \"t0\".\"Cantidad\", \"t0\".\"FechaCreacion\", \"t0\".\"FechaModificacion\", \"t0\".\"NoFactura\", \"t0\".\"ProductoId\", \"t0\".\"ProveedorId\", \"t0\".\"TipoActivoId\", \"t0\".\"Id0\", \"t0\".\"Id1\", \"t0\".\"Id2\", \"a\".\"Id\", \"a\".\"Comentarios\", \"a\".\"FechaCreacion\", \"a\".\"FechaModificacion\", \"a\".\"NoFactura\", \"a\".\"NoInventario\", \"a\".\"NoSerie\", \"a\".\"PartidaId\", \"a\".\"ProductoId\", \"a\".\"ProveedorId\", \"a\".\"TipoActivoId\", \"t0\".\"MarcaProductoId\", \"t0\".\"Modelo\", \"t0\".\"Nombre\", \"t0\".\"Descripcion\", \"t0\".\"Nombre0\", \"t0\".\"Direccion\", \"t0\".\"Email\", \"t0\".\"Nombre1\", \"t0\".\"Telefono\"
+FROM (
+    SELECT \"p\".\"Id\", \"p\".\"Cantidad\", \"p\".\"FechaCreacion\", \"p\".\"FechaModificacion\", \"p\".\"NoFactura\", \"p\".\"ProductoId\", \"p\".\"ProveedorId\", \"p\".\"TipoActivoId\", \"p0\".\"Id\" AS \"Id0\", \"p0\".\"MarcaProductoId\", \"p0\".\"Modelo\", \"p0\".\"Nombre\", \"t\".\"Id\" AS \"Id1\", \"t\".\"Descripcion\", \"t\".\"Nombre\" AS \"Nombre0\", \"p1\".\"Id\" AS \"Id2\", \"p1\".\"Direccion\", \"p1\".\"Email\", \"p1\".\"Nombre\" AS \"Nombre1\", \"p1\".\"Telefono\"
+    FROM \"Partidas\" AS \"p\"
+    INNER JOIN \"Producto\" AS \"p0\" ON \"p\".\"ProductoId\" = \"p0\".\"Id\"
+    INNER JOIN \"TipoActivo\" AS \"t\" ON \"p\".\"TipoActivoId\" = \"t\".\"Id\"
+    INNER JOIN \"Proveedor\" AS \"p1\" ON \"p\".\"ProveedorId\" = \"p1\".\"Id\"
+    WHERE \"p\".\"Id\" = @__id_0
+    LIMIT 1
+) AS \"t0\"
+LEFT JOIN \"Activo\" AS \"a\" ON \"t0\".\"Id\" = \"a\".\"PartidaId\"
+ORDER BY \"t0\".\"Id\", \"t0\".\"Id0\", \"t0\".\"Id1\", \"t0\".\"Id2\""
+[27-01-2024 13:35:02.040 -07:00 INF] Executed DbCommand ("12"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"name\" = '__EFMigrationsHistory' AND \"type\" = 'table';"
+[27-01-2024 13:35:02.142 -07:00 INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"name\" = '__EFMigrationsHistory' AND \"type\" = 'table';"
+[27-01-2024 13:35:02.162 -07:00 INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT \"MigrationId\", \"ProductVersion\"
+FROM \"__EFMigrationsHistory\"
+ORDER BY \"MigrationId\";"
+[27-01-2024 13:35:02.190 -07:00 INF] No migrations were applied. The database is already up to date.
+[27-01-2024 13:35:02.346 -07:00 INF] User profile is available. Using '"/Users/andres.gonzalez/.aspnet/DataProtection-Keys"' as key repository; keys will not be encrypted at rest.
+[27-01-2024 13:35:02.488 -07:00 INF] Now listening on: "https://localhost:7141"
+[27-01-2024 13:35:02.489 -07:00 INF] Now listening on: "http://localhost:5045"
+[27-01-2024 13:35:02.498 -07:00 INF] Application started. Press Ctrl+C to shut down.
+[27-01-2024 13:35:02.519 -07:00 INF] Hosting environment: "Development"
+[27-01-2024 13:35:02.522 -07:00 INF] Content root path: "/Users/andres.gonzalez/Documents/Proyectos/Dotnet APIs/TestApi/API/"
+[27-01-2024 13:35:08.177 -07:00 INF] Request starting HTTP/1.1 POST http://localhost:5045/api/Activo/PostFromPartida application/json 129
+[27-01-2024 13:35:08.312 -07:00 INF] Executing endpoint '"API.Controllers.ActivoController.PostFromPartida (API)"'
+[27-01-2024 13:35:08.343 -07:00 INF] Route matched with "{action = \"PostFromPartida\", controller = \"Activo\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[Core.Entities.Activo]] PostFromPartida(API.DTOs.ActivoFromPartidaAddDto)" on controller "API.Controllers.ActivoController" ("API").
+[27-01-2024 13:35:12.052 -07:00 INF] Executed DbCommand ("5"ms) [Parameters=["@__id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT \"t0\".\"Id\", \"t0\".\"Cantidad\", \"t0\".\"FechaCreacion\", \"t0\".\"FechaModificacion\", \"t0\".\"NoFactura\", \"t0\".\"ProductoId\", \"t0\".\"ProveedorId\", \"t0\".\"TipoActivoId\", \"t0\".\"Id0\", \"t0\".\"Id1\", \"t0\".\"Id2\", \"a\".\"Id\", \"a\".\"Comentarios\", \"a\".\"FechaCreacion\", \"a\".\"FechaModificacion\", \"a\".\"NoFactura\", \"a\".\"NoInventario\", \"a\".\"NoSerie\", \"a\".\"PartidaId\", \"a\".\"ProductoId\", \"a\".\"ProveedorId\", \"a\".\"TipoActivoId\", \"t0\".\"MarcaProductoId\", \"t0\".\"Modelo\", \"t0\".\"Nombre\", \"t0\".\"Descripcion\", \"t0\".\"Nombre0\", \"t0\".\"Direccion\", \"t0\".\"Email\", \"t0\".\"Nombre1\", \"t0\".\"Telefono\"
+FROM (
+    SELECT \"p\".\"Id\", \"p\".\"Cantidad\", \"p\".\"FechaCreacion\", \"p\".\"FechaModificacion\", \"p\".\"NoFactura\", \"p\".\"ProductoId\", \"p\".\"ProveedorId\", \"p\".\"TipoActivoId\", \"p0\".\"Id\" AS \"Id0\", \"p0\".\"MarcaProductoId\", \"p0\".\"Modelo\", \"p0\".\"Nombre\", \"t\".\"Id\" AS \"Id1\", \"t\".\"Descripcion\", \"t\".\"Nombre\" AS \"Nombre0\", \"p1\".\"Id\" AS \"Id2\", \"p1\".\"Direccion\", \"p1\".\"Email\", \"p1\".\"Nombre\" AS \"Nombre1\", \"p1\".\"Telefono\"
+    FROM \"Partidas\" AS \"p\"
+    INNER JOIN \"Producto\" AS \"p0\" ON \"p\".\"ProductoId\" = \"p0\".\"Id\"
+    INNER JOIN \"TipoActivo\" AS \"t\" ON \"p\".\"TipoActivoId\" = \"t\".\"Id\"
+    INNER JOIN \"Proveedor\" AS \"p1\" ON \"p\".\"ProveedorId\" = \"p1\".\"Id\"
+    WHERE \"p\".\"Id\" = @__id_0
+    LIMIT 1
+) AS \"t0\"
+LEFT JOIN \"Activo\" AS \"a\" ON \"t0\".\"Id\" = \"a\".\"PartidaId\"
+ORDER BY \"t0\".\"Id\", \"t0\".\"Id0\", \"t0\".\"Id1\", \"t0\".\"Id2\""
+[27-01-2024 13:35:26.925 -07:00 INF] Executed DbCommand ("2"ms) [Parameters=["@p0='?' (Size = 24), @p1='?' (Size = 9), @p2='?' (Size = 10), @p3='?' (Size = 10), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32), @p6='?' (DbType = Int32), @p7='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"Activo\" (\"Comentarios\", \"NoFactura\", \"NoInventario\", \"NoSerie\", \"PartidaId\", \"ProductoId\", \"ProveedorId\", \"TipoActivoId\")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7)
+RETURNING \"Id\", \"FechaCreacion\", \"FechaModificacion\";"
+[27-01-2024 13:35:30.666 -07:00 INF] Executing "CreatedAtActionResult", writing value of type '"API.DTOs.ActivoDto"'.
+[27-01-2024 13:35:30.726 -07:00 INF] Executed action "API.Controllers.ActivoController.PostFromPartida (API)" in 22378.1409ms
+[27-01-2024 13:35:30.726 -07:00 INF] Executed endpoint '"API.Controllers.ActivoController.PostFromPartida (API)"'
+[27-01-2024 13:35:30.730 -07:00 INF] Request finished HTTP/1.1 POST http://localhost:5045/api/Activo/PostFromPartida application/json 129 - 201 - application/json;+charset=utf-8 22557.5400ms
+[27-01-2024 13:35:42.951 -07:00 INF] Request starting HTTP/1.1 GET http://localhost:5045/api/Partidas - -
+[27-01-2024 13:35:42.956 -07:00 INF] Executing endpoint '"API.Controllers.PartidasController.Get (API)"'
+[27-01-2024 13:35:42.962 -07:00 INF] Route matched with "{action = \"Get\", controller = \"Partidas\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[API.Helpers.Pager`1[API.DTOs.PartidasDto]]] Get(API.Helpers.Params)" on controller "API.Controllers.PartidasController" ("API").
+[27-01-2024 13:35:43.045 -07:00 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM \"Partidas\" AS \"p\""
+[27-01-2024 13:35:43.053 -07:00 WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+[27-01-2024 13:35:43.054 -07:00 WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+[27-01-2024 13:35:43.065 -07:00 INF] Executed DbCommand ("0"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT \"t\".\"Id\", \"t\".\"Cantidad\", \"t\".\"FechaCreacion\", \"t\".\"FechaModificacion\", \"t\".\"NoFactura\", \"t\".\"ProductoId\", \"t\".\"ProveedorId\", \"t\".\"TipoActivoId\", \"p0\".\"Id\", \"t0\".\"Id\", \"p1\".\"Id\", \"a\".\"Id\", \"a\".\"Comentarios\", \"a\".\"FechaCreacion\", \"a\".\"FechaModificacion\", \"a\".\"NoFactura\", \"a\".\"NoInventario\", \"a\".\"NoSerie\", \"a\".\"PartidaId\", \"a\".\"ProductoId\", \"a\".\"ProveedorId\", \"a\".\"TipoActivoId\", \"p0\".\"MarcaProductoId\", \"p0\".\"Modelo\", \"p0\".\"Nombre\", \"t0\".\"Descripcion\", \"t0\".\"Nombre\", \"p1\".\"Direccion\", \"p1\".\"Email\", \"p1\".\"Nombre\", \"p1\".\"Telefono\"
+FROM (
+    SELECT \"p\".\"Id\", \"p\".\"Cantidad\", \"p\".\"FechaCreacion\", \"p\".\"FechaModificacion\", \"p\".\"NoFactura\", \"p\".\"ProductoId\", \"p\".\"ProveedorId\", \"p\".\"TipoActivoId\"
+    FROM \"Partidas\" AS \"p\"
+    LIMIT @__p_1 OFFSET @__p_0
+) AS \"t\"
+INNER JOIN \"Producto\" AS \"p0\" ON \"t\".\"ProductoId\" = \"p0\".\"Id\"
+INNER JOIN \"TipoActivo\" AS \"t0\" ON \"t\".\"TipoActivoId\" = \"t0\".\"Id\"
+INNER JOIN \"Proveedor\" AS \"p1\" ON \"t\".\"ProveedorId\" = \"p1\".\"Id\"
+LEFT JOIN \"Activo\" AS \"a\" ON \"t\".\"Id\" = \"a\".\"PartidaId\"
+ORDER BY \"t\".\"Id\", \"p0\".\"Id\", \"t0\".\"Id\", \"p1\".\"Id\""
+[27-01-2024 13:35:43.078 -07:00 INF] Executing "ObjectResult", writing value of type '"API.Helpers.Pager`1[[API.DTOs.PartidasDto, API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'.
+[27-01-2024 13:35:43.098 -07:00 INF] Executed action "API.Controllers.PartidasController.Get (API)" in 136.0615ms
+[27-01-2024 13:35:43.098 -07:00 INF] Executed endpoint '"API.Controllers.PartidasController.Get (API)"'
+[27-01-2024 13:35:43.098 -07:00 INF] Request finished HTTP/1.1 GET http://localhost:5045/api/Partidas - - - 200 - application/json;+charset=utf-8 147.3231ms
+[27-01-2024 14:09:15.050 -07:00 INF] Executed DbCommand ("12"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"name\" = '__EFMigrationsHistory' AND \"type\" = 'table';"
+[27-01-2024 14:09:15.151 -07:00 INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"name\" = '__EFMigrationsHistory' AND \"type\" = 'table';"
+[27-01-2024 14:09:15.170 -07:00 INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT \"MigrationId\", \"ProductVersion\"
+FROM \"__EFMigrationsHistory\"
+ORDER BY \"MigrationId\";"
+[27-01-2024 14:09:15.199 -07:00 INF] No migrations were applied. The database is already up to date.
+[27-01-2024 14:09:15.355 -07:00 INF] User profile is available. Using '"/Users/andres.gonzalez/.aspnet/DataProtection-Keys"' as key repository; keys will not be encrypted at rest.
+[27-01-2024 14:09:15.508 -07:00 INF] Now listening on: "https://localhost:7141"
+[27-01-2024 14:09:15.509 -07:00 INF] Now listening on: "http://localhost:5045"
+[27-01-2024 14:09:15.516 -07:00 INF] Application started. Press Ctrl+C to shut down.
+[27-01-2024 14:09:15.518 -07:00 INF] Hosting environment: "Development"
+[27-01-2024 14:09:15.518 -07:00 INF] Content root path: "/Users/andres.gonzalez/Documents/Proyectos/Dotnet APIs/TestApi/API/"
+[27-01-2024 14:10:43.802 -07:00 INF] Request starting HTTP/1.1 GET http://localhost:5045/api/Activo/PostFromPartida - -
+[27-01-2024 14:10:43.934 -07:00 INF] Executing endpoint '"API.Controllers.ActivoController.Get (API)"'
+[27-01-2024 14:10:43.965 -07:00 INF] Route matched with "{action = \"Get\", controller = \"Activo\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[API.DTOs.ActivoDto]] Get(Int32)" on controller "API.Controllers.ActivoController" ("API").
+[27-01-2024 14:10:54.039 -07:00 INF] Executing "BadRequestObjectResult", writing value of type '"API.Helpers.ApiValidation"'.
+[27-01-2024 14:10:54.140 -07:00 INF] Executed action "API.Controllers.ActivoController.Get (API)" in 10170.573ms
+[27-01-2024 14:10:54.140 -07:00 INF] Executed endpoint '"API.Controllers.ActivoController.Get (API)"'
+[27-01-2024 14:10:54.144 -07:00 INF] Request finished HTTP/1.1 GET http://localhost:5045/api/Activo/PostFromPartida - - - 400 - application/json;+charset=utf-8 10346.3285ms
+[27-01-2024 14:11:07.032 -07:00 INF] Request starting HTTP/1.1 GET http://localhost:5045/api/Activo/PostFromPartida - -
+[27-01-2024 14:11:07.038 -07:00 INF] Executing endpoint '"API.Controllers.ActivoController.Get (API)"'
+[27-01-2024 14:11:07.040 -07:00 INF] Route matched with "{action = \"Get\", controller = \"Activo\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[API.DTOs.ActivoDto]] Get(Int32)" on controller "API.Controllers.ActivoController" ("API").
+[27-01-2024 14:11:07.042 -07:00 INF] Executing "BadRequestObjectResult", writing value of type '"API.Helpers.ApiValidation"'.
+[27-01-2024 14:11:07.043 -07:00 INF] Executed action "API.Controllers.ActivoController.Get (API)" in 1.5511ms
+[27-01-2024 14:11:07.043 -07:00 INF] Executed endpoint '"API.Controllers.ActivoController.Get (API)"'
+[27-01-2024 14:11:07.043 -07:00 INF] Request finished HTTP/1.1 GET http://localhost:5045/api/Activo/PostFromPartida - - - 400 - application/json;+charset=utf-8 10.8100ms
+[27-01-2024 14:11:17.606 -07:00 INF] Request starting HTTP/1.1 GET http://localhost:5045/api/Activo/FromPartida - -
+[27-01-2024 14:11:17.611 -07:00 INF] Executing endpoint '"API.Controllers.ActivoController.PostFromPartida (API)"'
+[27-01-2024 14:11:17.617 -07:00 INF] Route matched with "{action = \"PostFromPartida\", controller = \"Activo\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[Core.Entities.Activo]] PostFromPartida(API.DTOs.ActivoFromPartidaAddDto)" on controller "API.Controllers.ActivoController" ("API").
+[27-01-2024 14:11:17.667 -07:00 INF] Executing "ObjectResult", writing value of type '"Microsoft.AspNetCore.Mvc.ProblemDetails"'.
+[27-01-2024 14:11:17.677 -07:00 INF] Executed action "API.Controllers.ActivoController.PostFromPartida (API)" in 59.2996ms
+[27-01-2024 14:11:17.677 -07:00 INF] Executed endpoint '"API.Controllers.ActivoController.PostFromPartida (API)"'
+[27-01-2024 14:11:17.677 -07:00 INF] Request finished HTTP/1.1 GET http://localhost:5045/api/Activo/FromPartida - - - 415 - application/problem+json;+charset=utf-8 70.4129ms
+[27-01-2024 14:11:37.177 -07:00 INF] Request starting HTTP/1.1 GET http://localhost:5045/api/Activo/FromPartida - -
+[27-01-2024 14:11:37.177 -07:00 INF] Executing endpoint '"API.Controllers.ActivoController.PostFromPartida (API)"'
+[27-01-2024 14:11:37.177 -07:00 INF] Route matched with "{action = \"PostFromPartida\", controller = \"Activo\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[Core.Entities.Activo]] PostFromPartida(API.DTOs.ActivoFromPartidaAddDto)" on controller "API.Controllers.ActivoController" ("API").
+[27-01-2024 14:11:37.178 -07:00 INF] Executing "ObjectResult", writing value of type '"Microsoft.AspNetCore.Mvc.ProblemDetails"'.
+[27-01-2024 14:11:37.178 -07:00 INF] Executed action "API.Controllers.ActivoController.PostFromPartida (API)" in 0.632ms
+[27-01-2024 14:11:37.178 -07:00 INF] Executed endpoint '"API.Controllers.ActivoController.PostFromPartida (API)"'
+[27-01-2024 14:11:37.178 -07:00 INF] Request finished HTTP/1.1 GET http://localhost:5045/api/Activo/FromPartida - - - 415 - application/problem+json;+charset=utf-8 1.4647ms
+[27-01-2024 14:11:51.890 -07:00 INF] Request starting HTTP/1.1 POST http://localhost:5045/api/Activo/FromPartida application/json 129
+[27-01-2024 14:11:51.891 -07:00 INF] Executing endpoint '"API.Controllers.ActivoController.FromPartida (API)"'
+[27-01-2024 14:11:51.897 -07:00 INF] Route matched with "{action = \"FromPartida\", controller = \"Activo\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[API.DTOs.ActivoDto]] FromPartida(API.Helpers.Params)" on controller "API.Controllers.ActivoController" ("API").
+[27-01-2024 14:11:57.747 -07:00 WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+[27-01-2024 14:11:57.749 -07:00 WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+[27-01-2024 14:11:57.889 -07:00 INF] Executed DbCommand ("4"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT \"a\".\"Id\", \"a\".\"Comentarios\", \"a\".\"FechaCreacion\", \"a\".\"FechaModificacion\", \"a\".\"NoFactura\", \"a\".\"NoInventario\", \"a\".\"NoSerie\", \"a\".\"PartidaId\", \"a\".\"ProductoId\", \"a\".\"ProveedorId\", \"a\".\"TipoActivoId\"
+FROM \"Activo\" AS \"a\"
+WHERE \"a\".\"PartidaId\" IS NOT NULL
+LIMIT @__p_1 OFFSET @__p_0"
+[27-01-2024 14:11:57.991 -07:00 INF] Executed action "API.Controllers.ActivoController.FromPartida (API)" in 6093.1056ms
+[27-01-2024 14:11:57.991 -07:00 INF] Executed endpoint '"API.Controllers.ActivoController.FromPartida (API)"'
+[27-01-2024 14:11:58.032 -07:00 ERR] Missing type map configuration or unsupported mapping.
+
+Mapping types:
+ValueTuple`2 -> IEnumerable`1
+System.ValueTuple`2[[System.Int32, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Collections.Generic.IEnumerable`1[[Core.Entities.Activo, Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]] -> System.Collections.Generic.IEnumerable`1[[API.DTOs.ActivoDto, API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+ValueTuple`2 -> IEnumerable`1
+System.ValueTuple`2[[System.Int32, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Collections.Generic.IEnumerable`1[[Core.Entities.Activo, Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]] -> System.Collections.Generic.IEnumerable`1[[API.DTOs.ActivoDto, API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+   at lambda_method104(Closure , Object , IEnumerable`1 , ResolutionContext )
+   at API.Controllers.ActivoController.FromPartida(Params itemParams) in /Users/andres.gonzalez/Documents/Proyectos/Dotnet APIs/TestApi/API/Controllers/InventarioCentinela/ActivoController.cs:line 61
+   at lambda_method32(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at AspNetCoreRateLimit.RateLimitMiddleware`1.Invoke(HttpContext context) in C:\Users\User\Documents\Github\AspNetCoreRateLimit\src\AspNetCoreRateLimit\Middleware\RateLimitMiddleware.cs:line 124
+   at Microsoft.AspNetCore.Diagnostics.StatusCodePagesMiddleware.Invoke(HttpContext context)
+   at API.Helpers.ExceptionMiddleware.InvokeAsync(HttpContext context) in /Users/andres.gonzalez/Documents/Proyectos/Dotnet APIs/TestApi/API/Helpers/ErrorResponse/ExceptionMiddleware..cs:line 24
+[27-01-2024 14:11:58.048 -07:00 INF] Request finished HTTP/1.1 POST http://localhost:5045/api/Activo/FromPartida application/json 129 - 500 - application/json 6158.0615ms
+[27-01-2024 14:12:07.927 -07:00 INF] Request starting HTTP/1.1 POST http://localhost:5045/api/Activo/FromPartida application/json 129
+[27-01-2024 14:12:07.928 -07:00 INF] Executing endpoint '"API.Controllers.ActivoController.FromPartida (API)"'
+[27-01-2024 14:12:07.928 -07:00 INF] Route matched with "{action = \"FromPartida\", controller = \"Activo\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[API.DTOs.ActivoDto]] FromPartida(API.Helpers.Params)" on controller "API.Controllers.ActivoController" ("API").
+[27-01-2024 14:12:16.288 -07:00 INF] Executed DbCommand ("0"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT \"a\".\"Id\", \"a\".\"Comentarios\", \"a\".\"FechaCreacion\", \"a\".\"FechaModificacion\", \"a\".\"NoFactura\", \"a\".\"NoInventario\", \"a\".\"NoSerie\", \"a\".\"PartidaId\", \"a\".\"ProductoId\", \"a\".\"ProveedorId\", \"a\".\"TipoActivoId\"
+FROM \"Activo\" AS \"a\"
+WHERE \"a\".\"PartidaId\" IS NOT NULL
+LIMIT @__p_1 OFFSET @__p_0"
+[27-01-2024 14:12:16.310 -07:00 INF] Executed action "API.Controllers.ActivoController.FromPartida (API)" in 8381.6785ms
+[27-01-2024 14:12:16.310 -07:00 INF] Executed endpoint '"API.Controllers.ActivoController.FromPartida (API)"'
+[27-01-2024 14:12:16.321 -07:00 ERR] Missing type map configuration or unsupported mapping.
+
+Mapping types:
+ValueTuple`2 -> IEnumerable`1
+System.ValueTuple`2[[System.Int32, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Collections.Generic.IEnumerable`1[[Core.Entities.Activo, Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]] -> System.Collections.Generic.IEnumerable`1[[API.DTOs.ActivoDto, API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+ValueTuple`2 -> IEnumerable`1
+System.ValueTuple`2[[System.Int32, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Collections.Generic.IEnumerable`1[[Core.Entities.Activo, Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]] -> System.Collections.Generic.IEnumerable`1[[API.DTOs.ActivoDto, API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+   at lambda_method104(Closure , Object , IEnumerable`1 , ResolutionContext )
+   at API.Controllers.ActivoController.FromPartida(Params itemParams) in /Users/andres.gonzalez/Documents/Proyectos/Dotnet APIs/TestApi/API/Controllers/InventarioCentinela/ActivoController.cs:line 61
+   at lambda_method32(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at AspNetCoreRateLimit.RateLimitMiddleware`1.Invoke(HttpContext context) in C:\Users\User\Documents\Github\AspNetCoreRateLimit\src\AspNetCoreRateLimit\Middleware\RateLimitMiddleware.cs:line 124
+   at Microsoft.AspNetCore.Diagnostics.StatusCodePagesMiddleware.Invoke(HttpContext context)
+   at API.Helpers.ExceptionMiddleware.InvokeAsync(HttpContext context) in /Users/andres.gonzalez/Documents/Proyectos/Dotnet APIs/TestApi/API/Helpers/ErrorResponse/ExceptionMiddleware..cs:line 24
+[27-01-2024 14:12:16.323 -07:00 INF] Request finished HTTP/1.1 POST http://localhost:5045/api/Activo/FromPartida application/json 129 - 500 - application/json 8396.0195ms
+[27-01-2024 14:12:53.059 -07:00 INF] Executed DbCommand ("13"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"name\" = '__EFMigrationsHistory' AND \"type\" = 'table';"
+[27-01-2024 14:12:53.150 -07:00 INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"name\" = '__EFMigrationsHistory' AND \"type\" = 'table';"
+[27-01-2024 14:12:53.173 -07:00 INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT \"MigrationId\", \"ProductVersion\"
+FROM \"__EFMigrationsHistory\"
+ORDER BY \"MigrationId\";"
+[27-01-2024 14:12:53.206 -07:00 INF] No migrations were applied. The database is already up to date.
+[27-01-2024 14:12:53.346 -07:00 INF] User profile is available. Using '"/Users/andres.gonzalez/.aspnet/DataProtection-Keys"' as key repository; keys will not be encrypted at rest.
+[27-01-2024 14:12:53.536 -07:00 INF] Now listening on: "https://localhost:7141"
+[27-01-2024 14:12:53.538 -07:00 INF] Now listening on: "http://localhost:5045"
+[27-01-2024 14:12:53.552 -07:00 INF] Application started. Press Ctrl+C to shut down.
+[27-01-2024 14:12:53.555 -07:00 INF] Hosting environment: "Development"
+[27-01-2024 14:12:53.556 -07:00 INF] Content root path: "/Users/andres.gonzalez/Documents/Proyectos/Dotnet APIs/TestApi/API/"
+[27-01-2024 14:12:58.414 -07:00 INF] Request starting HTTP/1.1 POST http://localhost:5045/api/Activo/FromPartida application/json 129
+[27-01-2024 14:12:58.550 -07:00 INF] Executing endpoint '"API.Controllers.ActivoController.PostFromPartida (API)"'
+[27-01-2024 14:12:58.582 -07:00 INF] Route matched with "{action = \"PostFromPartida\", controller = \"Activo\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[Core.Entities.Activo]] PostFromPartida(API.DTOs.ActivoFromPartidaAddDto)" on controller "API.Controllers.ActivoController" ("API").
+[27-01-2024 14:13:03.823 -07:00 INF] Executed DbCommand ("6"ms) [Parameters=["@__id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT \"t0\".\"Id\", \"t0\".\"Cantidad\", \"t0\".\"FechaCreacion\", \"t0\".\"FechaModificacion\", \"t0\".\"NoFactura\", \"t0\".\"ProductoId\", \"t0\".\"ProveedorId\", \"t0\".\"TipoActivoId\", \"t0\".\"Id0\", \"t0\".\"Id1\", \"t0\".\"Id2\", \"a\".\"Id\", \"a\".\"Comentarios\", \"a\".\"FechaCreacion\", \"a\".\"FechaModificacion\", \"a\".\"NoFactura\", \"a\".\"NoInventario\", \"a\".\"NoSerie\", \"a\".\"PartidaId\", \"a\".\"ProductoId\", \"a\".\"ProveedorId\", \"a\".\"TipoActivoId\", \"t0\".\"MarcaProductoId\", \"t0\".\"Modelo\", \"t0\".\"Nombre\", \"t0\".\"Descripcion\", \"t0\".\"Nombre0\", \"t0\".\"Direccion\", \"t0\".\"Email\", \"t0\".\"Nombre1\", \"t0\".\"Telefono\"
+FROM (
+    SELECT \"p\".\"Id\", \"p\".\"Cantidad\", \"p\".\"FechaCreacion\", \"p\".\"FechaModificacion\", \"p\".\"NoFactura\", \"p\".\"ProductoId\", \"p\".\"ProveedorId\", \"p\".\"TipoActivoId\", \"p0\".\"Id\" AS \"Id0\", \"p0\".\"MarcaProductoId\", \"p0\".\"Modelo\", \"p0\".\"Nombre\", \"t\".\"Id\" AS \"Id1\", \"t\".\"Descripcion\", \"t\".\"Nombre\" AS \"Nombre0\", \"p1\".\"Id\" AS \"Id2\", \"p1\".\"Direccion\", \"p1\".\"Email\", \"p1\".\"Nombre\" AS \"Nombre1\", \"p1\".\"Telefono\"
+    FROM \"Partidas\" AS \"p\"
+    INNER JOIN \"Producto\" AS \"p0\" ON \"p\".\"ProductoId\" = \"p0\".\"Id\"
+    INNER JOIN \"TipoActivo\" AS \"t\" ON \"p\".\"TipoActivoId\" = \"t\".\"Id\"
+    INNER JOIN \"Proveedor\" AS \"p1\" ON \"p\".\"ProveedorId\" = \"p1\".\"Id\"
+    WHERE \"p\".\"Id\" = @__id_0
+    LIMIT 1
+) AS \"t0\"
+LEFT JOIN \"Activo\" AS \"a\" ON \"t0\".\"Id\" = \"a\".\"PartidaId\"
+ORDER BY \"t0\".\"Id\", \"t0\".\"Id0\", \"t0\".\"Id1\", \"t0\".\"Id2\""
+[27-01-2024 14:13:09.329 -07:00 INF] Executed DbCommand ("2"ms) [Parameters=["@p0='?' (Size = 24), @p1='?' (Size = 9), @p2='?' (Size = 10), @p3='?' (Size = 10), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32), @p6='?' (DbType = Int32), @p7='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"Activo\" (\"Comentarios\", \"NoFactura\", \"NoInventario\", \"NoSerie\", \"PartidaId\", \"ProductoId\", \"ProveedorId\", \"TipoActivoId\")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7)
+RETURNING \"Id\", \"FechaCreacion\", \"FechaModificacion\";"
+[27-01-2024 14:13:09.371 -07:00 INF] Executing "CreatedAtActionResult", writing value of type '"API.DTOs.ActivoDto"'.
+[27-01-2024 14:13:09.427 -07:00 INF] Executed action "API.Controllers.ActivoController.PostFromPartida (API)" in 10840.2896ms
+[27-01-2024 14:13:09.427 -07:00 INF] Executed endpoint '"API.Controllers.ActivoController.PostFromPartida (API)"'
+[27-01-2024 14:13:09.432 -07:00 INF] Request finished HTTP/1.1 POST http://localhost:5045/api/Activo/FromPartida application/json 129 - 201 - application/json;+charset=utf-8 11022.5241ms
+[27-01-2024 14:13:18.297 -07:00 INF] Request starting HTTP/1.1 GET http://localhost:5045/api/Activo/FromPartida - -
+[27-01-2024 14:13:18.302 -07:00 INF] Executing endpoint '"API.Controllers.ActivoController.FromPartida (API)"'
+[27-01-2024 14:13:18.308 -07:00 INF] Route matched with "{action = \"FromPartida\", controller = \"Activo\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[API.DTOs.ActivoDto]] FromPartida(API.Helpers.Params)" on controller "API.Controllers.ActivoController" ("API").
+[27-01-2024 14:13:41.357 -07:00 WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+[27-01-2024 14:13:41.358 -07:00 WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+[27-01-2024 14:13:41.367 -07:00 INF] Executed DbCommand ("0"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT \"a\".\"Id\", \"a\".\"Comentarios\", \"a\".\"FechaCreacion\", \"a\".\"FechaModificacion\", \"a\".\"NoFactura\", \"a\".\"NoInventario\", \"a\".\"NoSerie\", \"a\".\"PartidaId\", \"a\".\"ProductoId\", \"a\".\"ProveedorId\", \"a\".\"TipoActivoId\"
+FROM \"Activo\" AS \"a\"
+WHERE \"a\".\"PartidaId\" IS NOT NULL
+LIMIT @__p_1 OFFSET @__p_0"
+[27-01-2024 14:14:15.686 -07:00 INF] Executed action "API.Controllers.ActivoController.FromPartida (API)" in 57378.3056ms
+[27-01-2024 14:14:15.689 -07:00 INF] Executed endpoint '"API.Controllers.ActivoController.FromPartida (API)"'
+[27-01-2024 14:14:17.191 -07:00 ERR] Missing type map configuration or unsupported mapping.
+
+Mapping types:
+ValueTuple`2 -> IEnumerable`1
+System.ValueTuple`2[[System.Int32, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Collections.Generic.IEnumerable`1[[Core.Entities.Activo, Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]] -> System.Collections.Generic.IEnumerable`1[[API.DTOs.ActivoDto, API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+ValueTuple`2 -> IEnumerable`1
+System.ValueTuple`2[[System.Int32, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Collections.Generic.IEnumerable`1[[Core.Entities.Activo, Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]] -> System.Collections.Generic.IEnumerable`1[[API.DTOs.ActivoDto, API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+   at lambda_method396(Closure , Object , IEnumerable`1 , ResolutionContext )
+   at API.Controllers.ActivoController.FromPartida(Params itemParams) in /Users/andres.gonzalez/Documents/Proyectos/Dotnet APIs/TestApi/API/Controllers/InventarioCentinela/ActivoController.cs:line 61
+   at lambda_method388(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at AspNetCoreRateLimit.RateLimitMiddleware`1.Invoke(HttpContext context) in C:\Users\User\Documents\Github\AspNetCoreRateLimit\src\AspNetCoreRateLimit\Middleware\RateLimitMiddleware.cs:line 124
+   at Microsoft.AspNetCore.Diagnostics.StatusCodePagesMiddleware.Invoke(HttpContext context)
+   at API.Helpers.ExceptionMiddleware.InvokeAsync(HttpContext context) in /Users/andres.gonzalez/Documents/Proyectos/Dotnet APIs/TestApi/API/Helpers/ErrorResponse/ExceptionMiddleware..cs:line 24
+[27-01-2024 14:14:17.204 -07:00 INF] Request finished HTTP/1.1 GET http://localhost:5045/api/Activo/FromPartida - - - 500 - application/json 58906.5686ms
+[27-01-2024 14:21:39.356 -07:00 INF] Request starting HTTP/1.1 GET http://localhost:5045/api/Activo/FromPartida - -
+[27-01-2024 14:21:39.366 -07:00 INF] Executing endpoint '"API.Controllers.ActivoController.FromPartida (API)"'
+[27-01-2024 14:21:39.366 -07:00 INF] Route matched with "{action = \"FromPartida\", controller = \"Activo\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[API.DTOs.ActivoDto]] FromPartida(API.Helpers.Params)" on controller "API.Controllers.ActivoController" ("API").
+[27-01-2024 14:21:48.813 -07:00 INF] Executed DbCommand ("11"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"name\" = '__EFMigrationsHistory' AND \"type\" = 'table';"
+[27-01-2024 14:21:48.893 -07:00 INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"name\" = '__EFMigrationsHistory' AND \"type\" = 'table';"
+[27-01-2024 14:21:48.912 -07:00 INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT \"MigrationId\", \"ProductVersion\"
+FROM \"__EFMigrationsHistory\"
+ORDER BY \"MigrationId\";"
+[27-01-2024 14:21:48.941 -07:00 INF] No migrations were applied. The database is already up to date.
+[27-01-2024 14:21:49.065 -07:00 INF] User profile is available. Using '"/Users/andres.gonzalez/.aspnet/DataProtection-Keys"' as key repository; keys will not be encrypted at rest.
+[27-01-2024 14:21:49.216 -07:00 INF] Now listening on: "https://localhost:7141"
+[27-01-2024 14:21:49.217 -07:00 INF] Now listening on: "http://localhost:5045"
+[27-01-2024 14:21:49.225 -07:00 INF] Application started. Press Ctrl+C to shut down.
+[27-01-2024 14:21:49.227 -07:00 INF] Hosting environment: "Development"
+[27-01-2024 14:21:49.228 -07:00 INF] Content root path: "/Users/andres.gonzalez/Documents/Proyectos/Dotnet APIs/TestApi/API/"
+[27-01-2024 14:21:53.604 -07:00 INF] Request starting HTTP/1.1 GET http://localhost:5045/api/Activo/FromPartida - -
+[27-01-2024 14:21:53.729 -07:00 INF] Executing endpoint '"API.Controllers.ActivoController.FromPartida (API)"'
+[27-01-2024 14:21:53.763 -07:00 INF] Route matched with "{action = \"FromPartida\", controller = \"Activo\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[API.Helpers.Pager`1[API.DTOs.ActivoDto]]] FromPartida(API.Helpers.Params)" on controller "API.Controllers.ActivoController" ("API").
+[27-01-2024 14:21:59.067 -07:00 WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+[27-01-2024 14:21:59.068 -07:00 WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+[27-01-2024 14:21:59.206 -07:00 INF] Executed DbCommand ("4"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT \"a\".\"Id\", \"a\".\"Comentarios\", \"a\".\"FechaCreacion\", \"a\".\"FechaModificacion\", \"a\".\"NoFactura\", \"a\".\"NoInventario\", \"a\".\"NoSerie\", \"a\".\"PartidaId\", \"a\".\"ProductoId\", \"a\".\"ProveedorId\", \"a\".\"TipoActivoId\"
+FROM \"Activo\" AS \"a\"
+WHERE \"a\".\"PartidaId\" IS NOT NULL
+LIMIT @__p_1 OFFSET @__p_0"
+[27-01-2024 14:22:37.210 -07:00 INF] Executing "ObjectResult", writing value of type '"API.Helpers.Pager`1[[API.DTOs.ActivoDto, API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'.
+[27-01-2024 14:22:37.356 -07:00 INF] Executed action "API.Controllers.ActivoController.FromPartida (API)" in 43588.4927ms
+[27-01-2024 14:22:37.356 -07:00 INF] Executed endpoint '"API.Controllers.ActivoController.FromPartida (API)"'
+[27-01-2024 14:22:37.360 -07:00 INF] Request finished HTTP/1.1 GET http://localhost:5045/api/Activo/FromPartida - - - 200 - application/json;+charset=utf-8 43760.9616ms
+[27-01-2024 14:29:50.465 -07:00 INF] Executed DbCommand ("11"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"name\" = '__EFMigrationsHistory' AND \"type\" = 'table';"
+[27-01-2024 14:29:50.547 -07:00 INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"name\" = '__EFMigrationsHistory' AND \"type\" = 'table';"
+[27-01-2024 14:29:50.567 -07:00 INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT \"MigrationId\", \"ProductVersion\"
+FROM \"__EFMigrationsHistory\"
+ORDER BY \"MigrationId\";"
+[27-01-2024 14:29:50.595 -07:00 INF] No migrations were applied. The database is already up to date.
+[27-01-2024 14:29:50.714 -07:00 INF] User profile is available. Using '"/Users/andres.gonzalez/.aspnet/DataProtection-Keys"' as key repository; keys will not be encrypted at rest.
+[27-01-2024 14:29:50.897 -07:00 INF] Now listening on: "https://localhost:7141"
+[27-01-2024 14:29:50.898 -07:00 INF] Now listening on: "http://localhost:5045"
+[27-01-2024 14:29:50.923 -07:00 INF] Application started. Press Ctrl+C to shut down.
+[27-01-2024 14:29:50.925 -07:00 INF] Hosting environment: "Development"
+[27-01-2024 14:29:50.939 -07:00 INF] Content root path: "/Users/andres.gonzalez/Documents/Proyectos/Dotnet APIs/TestApi/API/"
+[27-01-2024 14:29:56.801 -07:00 INF] Request starting HTTP/1.1 GET http://localhost:5045/api/Activo/FromPartida - -
+[27-01-2024 14:29:56.932 -07:00 INF] Executing endpoint '"API.Controllers.ActivoController.FromPartida (API)"'
+[27-01-2024 14:29:56.966 -07:00 INF] Route matched with "{action = \"FromPartida\", controller = \"Activo\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[API.Helpers.Pager`1[API.DTOs.ActivoDto]]] FromPartida(API.Helpers.Params)" on controller "API.Controllers.ActivoController" ("API").
+[27-01-2024 14:30:03.794 -07:00 WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+[27-01-2024 14:30:03.795 -07:00 WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+[27-01-2024 14:30:04.002 -07:00 INF] Executed DbCommand ("6"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT \"t\".\"Id\", \"t\".\"Comentarios\", \"t\".\"FechaCreacion\", \"t\".\"FechaModificacion\", \"t\".\"NoFactura\", \"t\".\"NoInventario\", \"t\".\"NoSerie\", \"t\".\"PartidaId\", \"t\".\"ProductoId\", \"t\".\"ProveedorId\", \"t\".\"TipoActivoId\", \"p\".\"Id\", \"p\".\"Cantidad\", \"p\".\"FechaCreacion\", \"p\".\"FechaModificacion\", \"p\".\"NoFactura\", \"p\".\"ProductoId\", \"p\".\"ProveedorId\", \"p\".\"TipoActivoId\", \"p0\".\"Id\", \"p0\".\"MarcaProductoId\", \"p0\".\"Modelo\", \"p0\".\"Nombre\", \"t0\".\"Id\", \"t0\".\"Descripcion\", \"t0\".\"Nombre\", \"p1\".\"Id\", \"p1\".\"Direccion\", \"p1\".\"Email\", \"p1\".\"Nombre\", \"p1\".\"Telefono\"
+FROM (
+    SELECT \"a\".\"Id\", \"a\".\"Comentarios\", \"a\".\"FechaCreacion\", \"a\".\"FechaModificacion\", \"a\".\"NoFactura\", \"a\".\"NoInventario\", \"a\".\"NoSerie\", \"a\".\"PartidaId\", \"a\".\"ProductoId\", \"a\".\"ProveedorId\", \"a\".\"TipoActivoId\"
+    FROM \"Activo\" AS \"a\"
+    WHERE \"a\".\"PartidaId\" IS NOT NULL
+    LIMIT @__p_1 OFFSET @__p_0
+) AS \"t\"
+LEFT JOIN \"Partidas\" AS \"p\" ON \"t\".\"PartidaId\" = \"p\".\"Id\"
+INNER JOIN \"Producto\" AS \"p0\" ON \"t\".\"ProductoId\" = \"p0\".\"Id\"
+INNER JOIN \"TipoActivo\" AS \"t0\" ON \"t\".\"TipoActivoId\" = \"t0\".\"Id\"
+INNER JOIN \"Proveedor\" AS \"p1\" ON \"t\".\"ProveedorId\" = \"p1\".\"Id\""
+[27-01-2024 14:30:14.968 -07:00 INF] Executing "ObjectResult", writing value of type '"API.Helpers.Pager`1[[API.DTOs.ActivoDto, API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'.
+[27-01-2024 14:30:17.382 -07:00 INF] Executed action "API.Controllers.ActivoController.FromPartida (API)" in 20410.2517ms
+[27-01-2024 14:30:17.382 -07:00 INF] Executed endpoint '"API.Controllers.ActivoController.FromPartida (API)"'
+[27-01-2024 14:30:17.387 -07:00 INF] Request finished HTTP/1.1 GET http://localhost:5045/api/Activo/FromPartida - - - 200 - application/json;+charset=utf-8 20589.7266ms

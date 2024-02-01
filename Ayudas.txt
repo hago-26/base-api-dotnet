@@ -1,0 +1,23 @@
+LISTA DE SNIPPETS
+    - Base para modelo: (ent)
+    - Fluent para modelo: (econfig)
+    - Interfaz de Repositorio: (irepo)
+    - Repositorio: (repo)
+    - Controlador Generico: (gcontr)
+    - DTO: (dto)
+    - Geters para Repositorio (getrepo)
+
+
+
+
+MIGRACIONES 
+    - Solucion a Errores:
+        - Instalar dotnet-ef:
+            - dotnet tool update --global dotnet-ef
+    - Crear Migracion: 
+        - (mac) dotnet ef migrations add InitialCreate -p ./Infrastructure -s ./API -o Data/Migrations
+        - (win) dotnet ef migrations add InitialCreate -p .\Infrastructure\ -s .\API\ -o Data/Migrations
+    - Aplicar Migracion: 
+        - (mac) dotnet ef database update -p ./Infrastructure -s ./API
+        - (win) dotnet ef database update -p .\Infrastructure\ -s .\API\
+

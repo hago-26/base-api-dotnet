@@ -1,0 +1,15 @@
+/Users/andres.gonzalez/Documents/Proyectos/Dotnet APIs/TestApi/Infrastructure/bin/Debug/net6.0/Infrastructure.deps.json
+/Users/andres.gonzalez/Documents/Proyectos/Dotnet APIs/TestApi/Infrastructure/bin/Debug/net6.0/Infrastructure.dll
+/Users/andres.gonzalez/Documents/Proyectos/Dotnet APIs/TestApi/Infrastructure/bin/Debug/net6.0/Infrastructure.pdb
+/Users/andres.gonzalez/Documents/Proyectos/Dotnet APIs/TestApi/Infrastructure/bin/Debug/net6.0/Core.dll
+/Users/andres.gonzalez/Documents/Proyectos/Dotnet APIs/TestApi/Infrastructure/bin/Debug/net6.0/Core.pdb
+/Users/andres.gonzalez/Documents/Proyectos/Dotnet APIs/TestApi/Infrastructure/obj/Debug/net6.0/Infrastructure.csproj.AssemblyReference.cache
+/Users/andres.gonzalez/Documents/Proyectos/Dotnet APIs/TestApi/Infrastructure/obj/Debug/net6.0/Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+/Users/andres.gonzalez/Documents/Proyectos/Dotnet APIs/TestApi/Infrastructure/obj/Debug/net6.0/Infrastructure.AssemblyInfoInputs.cache
+/Users/andres.gonzalez/Documents/Proyectos/Dotnet APIs/TestApi/Infrastructure/obj/Debug/net6.0/Infrastructure.AssemblyInfo.cs
+/Users/andres.gonzalez/Documents/Proyectos/Dotnet APIs/TestApi/Infrastructure/obj/Debug/net6.0/Infrastructure.csproj.CoreCompileInputs.cache
+/Users/andres.gonzalez/Documents/Proyectos/Dotnet APIs/TestApi/Infrastructure/obj/Debug/net6.0/Infrastructure.csproj.CopyComplete
+/Users/andres.gonzalez/Documents/Proyectos/Dotnet APIs/TestApi/Infrastructure/obj/Debug/net6.0/Infrastructure.dll
+/Users/andres.gonzalez/Documents/Proyectos/Dotnet APIs/TestApi/Infrastructure/obj/Debug/net6.0/refint/Infrastructure.dll
+/Users/andres.gonzalez/Documents/Proyectos/Dotnet APIs/TestApi/Infrastructure/obj/Debug/net6.0/Infrastructure.pdb
+/Users/andres.gonzalez/Documents/Proyectos/Dotnet APIs/TestApi/Infrastructure/obj/Debug/net6.0/ref/Infrastructure.dll

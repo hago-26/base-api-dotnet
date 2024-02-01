@@ -1,0 +1,396 @@
+[13-01-2024 09:47:10.966 -07:00 INF] Executed DbCommand ("9"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"name\" = '__EFMigrationsHistory' AND \"type\" = 'table';"
+[13-01-2024 09:47:11.031 -07:00 INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"name\" = '__EFMigrationsHistory' AND \"type\" = 'table';"
+[13-01-2024 09:47:11.039 -07:00 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT \"MigrationId\", \"ProductVersion\"
+FROM \"__EFMigrationsHistory\"
+ORDER BY \"MigrationId\";"
+[13-01-2024 09:47:11.056 -07:00 INF] No migrations were applied. The database is already up to date.
+[13-01-2024 09:47:11.155 -07:00 INF] User profile is available. Using '"/Users/andres.gonzalez/.aspnet/DataProtection-Keys"' as key repository; keys will not be encrypted at rest.
+[13-01-2024 09:47:11.796 -07:00 INF] Now listening on: "https://localhost:7141"
+[13-01-2024 09:47:11.796 -07:00 INF] Now listening on: "http://localhost:5045"
+[13-01-2024 09:47:11.800 -07:00 INF] Application started. Press Ctrl+C to shut down.
+[13-01-2024 09:47:11.801 -07:00 INF] Hosting environment: "Development"
+[13-01-2024 09:47:11.801 -07:00 INF] Content root path: "/Users/andres.gonzalez/Documents/Proyectos/Dotnet APIs/TestApi/API/"
+[13-01-2024 09:47:43.197 -07:00 INF] Request starting HTTP/1.1 GET http://localhost:5045/api/Producto - -
+[13-01-2024 09:47:43.258 -07:00 INF] Request finished HTTP/1.1 GET http://localhost:5045/api/Producto - - - 307 0 - 64.7142ms
+[13-01-2024 09:47:43.298 -07:00 INF] Request starting HTTP/1.1 GET https://localhost:7141/api/Producto - -
+[13-01-2024 09:47:43.334 -07:00 INF] Executing endpoint '"API.Controllers.ProductoController.Get (API)"'
+[13-01-2024 09:47:43.362 -07:00 INF] Route matched with "{action = \"Get\", controller = \"Producto\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[API.Helpers.Pager`1[API.DTOs.ProductoDto]]] Get(API.Helpers.Params)" on controller "API.Controllers.ProductoController" ("API").
+[13-01-2024 09:47:43.640 -07:00 INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM \"Producto\" AS \"p\""
+[13-01-2024 09:47:43.669 -07:00 WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+[13-01-2024 09:47:43.669 -07:00 WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+[13-01-2024 09:47:43.764 -07:00 INF] Executed DbCommand ("4"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT \"t\".\"Id\", \"t\".\"ModeloId\", \"t\".\"Nombre\", \"m\".\"Id\", \"m\".\"MarcaProductoId\", \"m\".\"Nombre\", \"a\".\"Id\", \"a\".\"Comentarios\", \"a\".\"FechaCreacion\", \"a\".\"FechaModificacion\", \"a\".\"NoFactura\", \"a\".\"NoInventario\", \"a\".\"NoSerie\", \"a\".\"ProductoId\", \"a\".\"ProveedorId\", \"a\".\"TipoActivoId\"
+FROM (
+    SELECT \"p\".\"Id\", \"p\".\"ModeloId\", \"p\".\"Nombre\"
+    FROM \"Producto\" AS \"p\"
+    LIMIT @__p_1 OFFSET @__p_0
+) AS \"t\"
+INNER JOIN \"ModeloProducto\" AS \"m\" ON \"t\".\"ModeloId\" = \"m\".\"Id\"
+LEFT JOIN \"Activo\" AS \"a\" ON \"t\".\"Id\" = \"a\".\"ProductoId\"
+ORDER BY \"t\".\"Id\", \"m\".\"Id\""
+[13-01-2024 09:47:43.841 -07:00 INF] Executing "ObjectResult", writing value of type '"API.Helpers.Pager`1[[API.DTOs.ProductoDto, API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'.
+[13-01-2024 09:47:43.920 -07:00 INF] Executed action "API.Controllers.ProductoController.Get (API)" in 554.6524ms
+[13-01-2024 09:47:43.920 -07:00 INF] Executed endpoint '"API.Controllers.ProductoController.Get (API)"'
+[13-01-2024 09:47:43.922 -07:00 INF] Request finished HTTP/1.1 GET https://localhost:7141/api/Producto - - - 200 - application/json;+charset=utf-8 623.0684ms
+[13-01-2024 09:49:46.071 -07:00 INF] Request starting HTTP/1.1 GET http://localhost:5045/api//producto/1 - -
+[13-01-2024 09:49:46.073 -07:00 INF] Request finished HTTP/1.1 GET http://localhost:5045/api//producto/1 - - - 307 0 - 2.1271ms
+[13-01-2024 09:49:48.440 -07:00 INF] Request starting HTTP/1.1 GET http://localhost:5045/api//producto/1 - -
+[13-01-2024 09:49:48.440 -07:00 INF] Request finished HTTP/1.1 GET http://localhost:5045/api//producto/1 - - - 307 0 - 0.4265ms
+[13-01-2024 09:50:09.511 -07:00 INF] Request starting HTTP/1.1 GET http://localhost:5045/api//producto/1 - -
+[13-01-2024 09:50:09.512 -07:00 INF] Request finished HTTP/1.1 GET http://localhost:5045/api//producto/1 - - - 307 0 - 0.8057ms
+[13-01-2024 09:50:18.886 -07:00 INF] Request starting HTTP/1.1 GET http://localhost:5045/api//producto/1 - -
+[13-01-2024 09:50:18.889 -07:00 INF] Request finished HTTP/1.1 GET http://localhost:5045/api//producto/1 - - - 307 0 - 2.9144ms
+[13-01-2024 09:50:27.611 -07:00 INF] Request starting HTTP/1.1 GET http://localhost:5045/api//producto/1 - -
+[13-01-2024 09:50:27.612 -07:00 INF] Request finished HTTP/1.1 GET http://localhost:5045/api//producto/1 - - - 307 0 - 1.1051ms
+[13-01-2024 09:50:30.076 -07:00 INF] Request starting HTTP/1.1 GET http://localhost:5045/api//producto/1 - -
+[13-01-2024 09:50:30.076 -07:00 INF] Request finished HTTP/1.1 GET http://localhost:5045/api//producto/1 - - - 307 0 - 0.4125ms
+[13-01-2024 09:51:03.616 -07:00 INF] Request starting HTTP/1.1 GET http://localhost:5045/api//producto/1 - -
+[13-01-2024 09:51:03.620 -07:00 INF] Request finished HTTP/1.1 GET http://localhost:5045/api//producto/1 - - - 307 0 - 4.4337ms
+[13-01-2024 09:51:13.963 -07:00 INF] Request starting HTTP/1.1 GET http://localhost:5045/api/producto/1 - -
+[13-01-2024 09:51:14.015 -07:00 INF] Request finished HTTP/1.1 GET http://localhost:5045/api/producto/1 - - - 307 0 - 50.3845ms
+[13-01-2024 09:51:32.044 -07:00 INF] Request starting HTTP/1.1 GET http://localhost:5045/api/producto/1 - -
+[13-01-2024 09:51:32.045 -07:00 INF] Request finished HTTP/1.1 GET http://localhost:5045/api/producto/1 - - - 307 0 - 0.7289ms
+[13-01-2024 09:51:59.121 -07:00 INF] Request starting HTTP/1.1 GET http://localhost:5045/api/Producto/1 - -
+[13-01-2024 09:51:59.122 -07:00 INF] Request finished HTTP/1.1 GET http://localhost:5045/api/Producto/1 - - - 307 0 - 1.5718ms
+[13-01-2024 09:51:59.152 -07:00 INF] Request starting HTTP/1.1 GET https://localhost:7141/api/Producto/1 - -
+[13-01-2024 09:51:59.153 -07:00 INF] Executing endpoint '"API.Controllers.ProductoController.Get (API)"'
+[13-01-2024 09:51:59.160 -07:00 INF] Route matched with "{action = \"Get\", controller = \"Producto\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[API.DTOs.ProductoDto]] Get(Int32)" on controller "API.Controllers.ProductoController" ("API").
+[13-01-2024 09:51:59.220 -07:00 INF] Executed DbCommand ("0"ms) [Parameters=["@__id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT \"t\".\"Id\", \"t\".\"ModeloId\", \"t\".\"Nombre\", \"t\".\"Id0\", \"t\".\"MarcaProductoId\", \"t\".\"Nombre0\", \"a\".\"Id\", \"a\".\"Comentarios\", \"a\".\"FechaCreacion\", \"a\".\"FechaModificacion\", \"a\".\"NoFactura\", \"a\".\"NoInventario\", \"a\".\"NoSerie\", \"a\".\"ProductoId\", \"a\".\"ProveedorId\", \"a\".\"TipoActivoId\"
+FROM (
+    SELECT \"p\".\"Id\", \"p\".\"ModeloId\", \"p\".\"Nombre\", \"m\".\"Id\" AS \"Id0\", \"m\".\"MarcaProductoId\", \"m\".\"Nombre\" AS \"Nombre0\"
+    FROM \"Producto\" AS \"p\"
+    INNER JOIN \"ModeloProducto\" AS \"m\" ON \"p\".\"ModeloId\" = \"m\".\"Id\"
+    WHERE \"p\".\"Id\" = @__id_0
+    LIMIT 1
+) AS \"t\"
+LEFT JOIN \"Activo\" AS \"a\" ON \"t\".\"Id\" = \"a\".\"ProductoId\"
+ORDER BY \"t\".\"Id\", \"t\".\"Id0\""
+[13-01-2024 09:51:59.223 -07:00 INF] Executing "ObjectResult", writing value of type '"API.DTOs.ProductoDto"'.
+[13-01-2024 09:51:59.223 -07:00 INF] Executed action "API.Controllers.ProductoController.Get (API)" in 62.9335ms
+[13-01-2024 09:51:59.223 -07:00 INF] Executed endpoint '"API.Controllers.ProductoController.Get (API)"'
+[13-01-2024 09:51:59.224 -07:00 INF] Request finished HTTP/1.1 GET https://localhost:7141/api/Producto/1 - - - 200 - application/json;+charset=utf-8 72.0003ms
+[13-01-2024 09:52:15.086 -07:00 INF] Application is shutting down...
+[13-01-2024 09:52:19.460 -07:00 INF] Executed DbCommand ("10"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"name\" = '__EFMigrationsHistory' AND \"type\" = 'table';"
+[13-01-2024 09:52:19.524 -07:00 INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"name\" = '__EFMigrationsHistory' AND \"type\" = 'table';"
+[13-01-2024 09:52:19.532 -07:00 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT \"MigrationId\", \"ProductVersion\"
+FROM \"__EFMigrationsHistory\"
+ORDER BY \"MigrationId\";"
+[13-01-2024 09:52:19.546 -07:00 INF] No migrations were applied. The database is already up to date.
+[13-01-2024 09:52:19.615 -07:00 INF] User profile is available. Using '"/Users/andres.gonzalez/.aspnet/DataProtection-Keys"' as key repository; keys will not be encrypted at rest.
+[13-01-2024 09:52:19.700 -07:00 INF] Now listening on: "https://localhost:7141"
+[13-01-2024 09:52:19.700 -07:00 INF] Now listening on: "http://localhost:5045"
+[13-01-2024 09:52:19.704 -07:00 INF] Application started. Press Ctrl+C to shut down.
+[13-01-2024 09:52:19.705 -07:00 INF] Hosting environment: "Development"
+[13-01-2024 09:52:19.705 -07:00 INF] Content root path: "/Users/andres.gonzalez/Documents/Proyectos/Dotnet APIs/TestApi/API/"
+[13-01-2024 09:57:54.773 -07:00 INF] Request starting HTTP/1.1 GET http://localhost:5045/api/producto/1 - -
+[13-01-2024 09:57:54.892 -07:00 INF] Request finished HTTP/1.1 GET http://localhost:5045/api/producto/1 - - - 307 0 - 125.0771ms
+[13-01-2024 10:01:23.442 -07:00 INF] Application is shutting down...
+[13-01-2024 13:40:07.031 -07:00 INF] Executed DbCommand ("9"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"name\" = '__EFMigrationsHistory' AND \"type\" = 'table';"
+[13-01-2024 13:40:07.095 -07:00 INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"name\" = '__EFMigrationsHistory' AND \"type\" = 'table';"
+[13-01-2024 13:40:07.103 -07:00 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT \"MigrationId\", \"ProductVersion\"
+FROM \"__EFMigrationsHistory\"
+ORDER BY \"MigrationId\";"
+[13-01-2024 13:40:07.118 -07:00 INF] No migrations were applied. The database is already up to date.
+[13-01-2024 13:40:07.213 -07:00 INF] User profile is available. Using '"/Users/andres.gonzalez/.aspnet/DataProtection-Keys"' as key repository; keys will not be encrypted at rest.
+[13-01-2024 13:40:07.475 -07:00 INF] Now listening on: "https://localhost:7141"
+[13-01-2024 13:40:07.475 -07:00 INF] Now listening on: "http://localhost:5045"
+[13-01-2024 13:40:07.479 -07:00 INF] Application started. Press Ctrl+C to shut down.
+[13-01-2024 13:40:07.479 -07:00 INF] Hosting environment: "Development"
+[13-01-2024 13:40:07.479 -07:00 INF] Content root path: "/Users/andres.gonzalez/Documents/Proyectos/Dotnet APIs/TestApi/API/"
+[13-01-2024 13:42:04.029 -07:00 INF] Request starting HTTP/1.1 GET http://localhost:5045/api/producto/1 - -
+[13-01-2024 13:42:04.084 -07:00 INF] CORS policy execution failed.
+[13-01-2024 13:42:04.084 -07:00 INF] Request origin "http://localhost:4200" does not have permission to access the resource.
+[13-01-2024 13:42:04.088 -07:00 INF] Request finished HTTP/1.1 GET http://localhost:5045/api/producto/1 - - - 307 0 - 62.2881ms
+[13-01-2024 13:42:05.564 -07:00 INF] Request starting HTTP/1.1 GET http://localhost:5045/api/producto/1 - -
+[13-01-2024 13:42:05.573 -07:00 INF] CORS policy execution failed.
+[13-01-2024 13:42:05.573 -07:00 INF] Request origin "http://localhost:4200" does not have permission to access the resource.
+[13-01-2024 13:42:05.573 -07:00 INF] Request finished HTTP/1.1 GET http://localhost:5045/api/producto/1 - - - 307 0 - 9.7012ms
+[13-01-2024 13:50:21.435 -07:00 INF] Request starting HTTP/1.1 GET http://localhost:5045/api/producto/1 - -
+[13-01-2024 13:50:21.436 -07:00 INF] CORS policy execution failed.
+[13-01-2024 13:50:21.436 -07:00 INF] Request origin "http://localhost:4200" does not have permission to access the resource.
+[13-01-2024 13:50:21.436 -07:00 INF] Request finished HTTP/1.1 GET http://localhost:5045/api/producto/1 - - - 307 0 - 1.5883ms
+[13-01-2024 13:52:57.845 -07:00 INF] Request starting HTTP/1.1 GET http://localhost:5045/api/producto/1 - -
+[13-01-2024 13:52:57.846 -07:00 INF] CORS policy execution failed.
+[13-01-2024 13:52:57.846 -07:00 INF] Request origin "http://localhost:4200" does not have permission to access the resource.
+[13-01-2024 13:52:57.847 -07:00 INF] Request finished HTTP/1.1 GET http://localhost:5045/api/producto/1 - - - 307 0 - 2.0647ms
+[13-01-2024 13:54:12.836 -07:00 INF] Application is shutting down...
+[13-01-2024 13:54:18.637 -07:00 INF] Executed DbCommand ("9"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"name\" = '__EFMigrationsHistory' AND \"type\" = 'table';"
+[13-01-2024 13:54:18.702 -07:00 INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"name\" = '__EFMigrationsHistory' AND \"type\" = 'table';"
+[13-01-2024 13:54:18.710 -07:00 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT \"MigrationId\", \"ProductVersion\"
+FROM \"__EFMigrationsHistory\"
+ORDER BY \"MigrationId\";"
+[13-01-2024 13:54:18.725 -07:00 INF] No migrations were applied. The database is already up to date.
+[13-01-2024 13:54:18.793 -07:00 INF] User profile is available. Using '"/Users/andres.gonzalez/.aspnet/DataProtection-Keys"' as key repository; keys will not be encrypted at rest.
+[13-01-2024 13:54:18.879 -07:00 INF] Now listening on: "https://localhost:7141"
+[13-01-2024 13:54:18.879 -07:00 INF] Now listening on: "http://localhost:5045"
+[13-01-2024 13:54:18.883 -07:00 INF] Application started. Press Ctrl+C to shut down.
+[13-01-2024 13:54:18.883 -07:00 INF] Hosting environment: "Development"
+[13-01-2024 13:54:18.883 -07:00 INF] Content root path: "/Users/andres.gonzalez/Documents/Proyectos/Dotnet APIs/TestApi/API/"
+[13-01-2024 13:54:25.841 -07:00 INF] Request starting HTTP/1.1 GET http://localhost:5045/api/producto/1 - -
+[13-01-2024 13:54:25.915 -07:00 INF] CORS policy execution successful.
+[13-01-2024 13:54:25.921 -07:00 INF] Request finished HTTP/1.1 GET http://localhost:5045/api/producto/1 - - - 307 0 - 85.2764ms
+[13-01-2024 13:59:04.643 -07:00 INF] Application is shutting down...
+[13-01-2024 13:59:11.796 -07:00 INF] Executed DbCommand ("9"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"name\" = '__EFMigrationsHistory' AND \"type\" = 'table';"
+[13-01-2024 13:59:11.860 -07:00 INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"name\" = '__EFMigrationsHistory' AND \"type\" = 'table';"
+[13-01-2024 13:59:11.869 -07:00 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT \"MigrationId\", \"ProductVersion\"
+FROM \"__EFMigrationsHistory\"
+ORDER BY \"MigrationId\";"
+[13-01-2024 13:59:11.884 -07:00 INF] No migrations were applied. The database is already up to date.
+[13-01-2024 13:59:11.954 -07:00 INF] User profile is available. Using '"/Users/andres.gonzalez/.aspnet/DataProtection-Keys"' as key repository; keys will not be encrypted at rest.
+[13-01-2024 13:59:12.044 -07:00 INF] Now listening on: "https://localhost:7141"
+[13-01-2024 13:59:12.044 -07:00 INF] Now listening on: "http://localhost:5045"
+[13-01-2024 13:59:12.048 -07:00 INF] Application started. Press Ctrl+C to shut down.
+[13-01-2024 13:59:12.049 -07:00 INF] Hosting environment: "Development"
+[13-01-2024 13:59:12.049 -07:00 INF] Content root path: "/Users/andres.gonzalez/Documents/Proyectos/Dotnet APIs/TestApi/API/"
+[13-01-2024 13:59:23.254 -07:00 INF] Request starting HTTP/1.1 GET http://localhost:5045/api/producto/1 - -
+[13-01-2024 13:59:23.328 -07:00 INF] CORS policy execution successful.
+[13-01-2024 13:59:23.361 -07:00 INF] Executing endpoint '"API.Controllers.ProductoController.Get (API)"'
+[13-01-2024 13:59:23.388 -07:00 INF] Route matched with "{action = \"Get\", controller = \"Producto\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[API.DTOs.ProductoDto]] Get(Int32)" on controller "API.Controllers.ProductoController" ("API").
+[13-01-2024 13:59:23.764 -07:00 INF] Executed DbCommand ("3"ms) [Parameters=["@__id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT \"t\".\"Id\", \"t\".\"ModeloId\", \"t\".\"Nombre\", \"t\".\"Id0\", \"t\".\"MarcaProductoId\", \"t\".\"Nombre0\", \"a\".\"Id\", \"a\".\"Comentarios\", \"a\".\"FechaCreacion\", \"a\".\"FechaModificacion\", \"a\".\"NoFactura\", \"a\".\"NoInventario\", \"a\".\"NoSerie\", \"a\".\"ProductoId\", \"a\".\"ProveedorId\", \"a\".\"TipoActivoId\"
+FROM (
+    SELECT \"p\".\"Id\", \"p\".\"ModeloId\", \"p\".\"Nombre\", \"m\".\"Id\" AS \"Id0\", \"m\".\"MarcaProductoId\", \"m\".\"Nombre\" AS \"Nombre0\"
+    FROM \"Producto\" AS \"p\"
+    INNER JOIN \"ModeloProducto\" AS \"m\" ON \"p\".\"ModeloId\" = \"m\".\"Id\"
+    WHERE \"p\".\"Id\" = @__id_0
+    LIMIT 1
+) AS \"t\"
+LEFT JOIN \"Activo\" AS \"a\" ON \"t\".\"Id\" = \"a\".\"ProductoId\"
+ORDER BY \"t\".\"Id\", \"t\".\"Id0\""
+[13-01-2024 13:59:23.838 -07:00 INF] Executing "ObjectResult", writing value of type '"API.DTOs.ProductoDto"'.
+[13-01-2024 13:59:23.907 -07:00 INF] Executed action "API.Controllers.ProductoController.Get (API)" in 515.9761ms
+[13-01-2024 13:59:23.908 -07:00 INF] Executed endpoint '"API.Controllers.ProductoController.Get (API)"'
+[13-01-2024 13:59:23.909 -07:00 INF] Request finished HTTP/1.1 GET http://localhost:5045/api/producto/1 - - - 200 - application/json;+charset=utf-8 660.0402ms
+[13-01-2024 13:59:48.360 -07:00 INF] Application is shutting down...
+[13-01-2024 17:52:35.225 -07:00 INF] Executed DbCommand ("10"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"name\" = '__EFMigrationsHistory' AND \"type\" = 'table';"
+[13-01-2024 17:52:35.291 -07:00 INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"name\" = '__EFMigrationsHistory' AND \"type\" = 'table';"
+[13-01-2024 17:52:35.299 -07:00 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT \"MigrationId\", \"ProductVersion\"
+FROM \"__EFMigrationsHistory\"
+ORDER BY \"MigrationId\";"
+[13-01-2024 17:52:35.314 -07:00 INF] No migrations were applied. The database is already up to date.
+[13-01-2024 17:52:35.406 -07:00 INF] User profile is available. Using '"/Users/andres.gonzalez/.aspnet/DataProtection-Keys"' as key repository; keys will not be encrypted at rest.
+[13-01-2024 17:52:35.499 -07:00 INF] Now listening on: "https://localhost:7141"
+[13-01-2024 17:52:35.499 -07:00 INF] Now listening on: "http://localhost:5045"
+[13-01-2024 17:52:35.502 -07:00 INF] Application started. Press Ctrl+C to shut down.
+[13-01-2024 17:52:35.503 -07:00 INF] Hosting environment: "Development"
+[13-01-2024 17:52:35.503 -07:00 INF] Content root path: "/Users/andres.gonzalez/Documents/Proyectos/Dotnet APIs/TestApi/API/"
+[13-01-2024 17:52:47.093 -07:00 INF] Request starting HTTP/1.1 GET http://localhost:5045/api/producto/1 - -
+[13-01-2024 17:52:47.154 -07:00 INF] CORS policy execution successful.
+[13-01-2024 17:52:47.185 -07:00 INF] Executing endpoint '"API.Controllers.ProductoController.Get (API)"'
+[13-01-2024 17:52:47.211 -07:00 INF] Route matched with "{action = \"Get\", controller = \"Producto\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[API.DTOs.ProductoDto]] Get(Int32)" on controller "API.Controllers.ProductoController" ("API").
+[13-01-2024 17:52:47.586 -07:00 INF] Executed DbCommand ("3"ms) [Parameters=["@__id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT \"t\".\"Id\", \"t\".\"ModeloId\", \"t\".\"Nombre\", \"t\".\"Id0\", \"t\".\"MarcaProductoId\", \"t\".\"Nombre0\", \"a\".\"Id\", \"a\".\"Comentarios\", \"a\".\"FechaCreacion\", \"a\".\"FechaModificacion\", \"a\".\"NoFactura\", \"a\".\"NoInventario\", \"a\".\"NoSerie\", \"a\".\"ProductoId\", \"a\".\"ProveedorId\", \"a\".\"TipoActivoId\"
+FROM (
+    SELECT \"p\".\"Id\", \"p\".\"ModeloId\", \"p\".\"Nombre\", \"m\".\"Id\" AS \"Id0\", \"m\".\"MarcaProductoId\", \"m\".\"Nombre\" AS \"Nombre0\"
+    FROM \"Producto\" AS \"p\"
+    INNER JOIN \"ModeloProducto\" AS \"m\" ON \"p\".\"ModeloId\" = \"m\".\"Id\"
+    WHERE \"p\".\"Id\" = @__id_0
+    LIMIT 1
+) AS \"t\"
+LEFT JOIN \"Activo\" AS \"a\" ON \"t\".\"Id\" = \"a\".\"ProductoId\"
+ORDER BY \"t\".\"Id\", \"t\".\"Id0\""
+[13-01-2024 17:52:47.660 -07:00 INF] Executing "ObjectResult", writing value of type '"API.DTOs.ProductoDto"'.
+[13-01-2024 17:52:47.729 -07:00 INF] Executed action "API.Controllers.ProductoController.Get (API)" in 514.106ms
+[13-01-2024 17:52:47.729 -07:00 INF] Executed endpoint '"API.Controllers.ProductoController.Get (API)"'
+[13-01-2024 17:52:47.730 -07:00 INF] Request finished HTTP/1.1 GET http://localhost:5045/api/producto/1 - - - 200 - application/json;+charset=utf-8 643.6033ms
+[13-01-2024 18:12:43.574 -07:00 INF] Request starting HTTP/1.1 GET http://localhost:5045/api//producto/1 - -
+[13-01-2024 18:12:43.577 -07:00 INF] CORS policy execution successful.
+[13-01-2024 18:12:43.583 -07:00 INF] CORS policy execution successful.
+[13-01-2024 18:12:43.585 -07:00 INF] Executing endpoint '"API.Controllers.ErrorsController.Error (API)"'
+[13-01-2024 18:12:43.588 -07:00 INF] Route matched with "{action = \"Error\", controller = \"Errors\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Error(Int32)" on controller "API.Controllers.ErrorsController" ("API").
+[13-01-2024 18:12:43.589 -07:00 INF] Executing "ObjectResult", writing value of type '"API.Helpers.ApiResponse"'.
+[13-01-2024 18:12:43.599 -07:00 INF] Executed action "API.Controllers.ErrorsController.Error (API)" in 11.0439ms
+[13-01-2024 18:12:43.599 -07:00 INF] Executed endpoint '"API.Controllers.ErrorsController.Error (API)"'
+[13-01-2024 18:12:43.600 -07:00 INF] Request finished HTTP/1.1 GET http://localhost:5045/api//producto/1 - - - 404 - application/json;+charset=utf-8 25.4379ms
+[13-01-2024 18:12:44.975 -07:00 INF] Request starting HTTP/1.1 GET http://localhost:5045/api//producto/1 - -
+[13-01-2024 18:12:44.975 -07:00 INF] CORS policy execution successful.
+[13-01-2024 18:12:44.977 -07:00 INF] CORS policy execution successful.
+[13-01-2024 18:12:44.977 -07:00 INF] Executing endpoint '"API.Controllers.ErrorsController.Error (API)"'
+[13-01-2024 18:12:44.977 -07:00 INF] Route matched with "{action = \"Error\", controller = \"Errors\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Error(Int32)" on controller "API.Controllers.ErrorsController" ("API").
+[13-01-2024 18:12:44.977 -07:00 INF] Executing "ObjectResult", writing value of type '"API.Helpers.ApiResponse"'.
+[13-01-2024 18:12:44.978 -07:00 INF] Executed action "API.Controllers.ErrorsController.Error (API)" in 0.336ms
+[13-01-2024 18:12:44.978 -07:00 INF] Executed endpoint '"API.Controllers.ErrorsController.Error (API)"'
+[13-01-2024 18:12:44.978 -07:00 INF] Request finished HTTP/1.1 GET http://localhost:5045/api//producto/1 - - - 404 - application/json;+charset=utf-8 2.8378ms
+[13-01-2024 18:13:23.159 -07:00 INF] Request starting HTTP/1.1 GET http://localhost:5045/api/producto/1 - -
+[13-01-2024 18:13:23.161 -07:00 INF] CORS policy execution successful.
+[13-01-2024 18:13:23.161 -07:00 INF] Executing endpoint '"API.Controllers.ProductoController.Get (API)"'
+[13-01-2024 18:13:23.161 -07:00 INF] Route matched with "{action = \"Get\", controller = \"Producto\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[API.DTOs.ProductoDto]] Get(Int32)" on controller "API.Controllers.ProductoController" ("API").
+[13-01-2024 18:13:23.213 -07:00 INF] Executed DbCommand ("1"ms) [Parameters=["@__id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT \"t\".\"Id\", \"t\".\"ModeloId\", \"t\".\"Nombre\", \"t\".\"Id0\", \"t\".\"MarcaProductoId\", \"t\".\"Nombre0\", \"a\".\"Id\", \"a\".\"Comentarios\", \"a\".\"FechaCreacion\", \"a\".\"FechaModificacion\", \"a\".\"NoFactura\", \"a\".\"NoInventario\", \"a\".\"NoSerie\", \"a\".\"ProductoId\", \"a\".\"ProveedorId\", \"a\".\"TipoActivoId\"
+FROM (
+    SELECT \"p\".\"Id\", \"p\".\"ModeloId\", \"p\".\"Nombre\", \"m\".\"Id\" AS \"Id0\", \"m\".\"MarcaProductoId\", \"m\".\"Nombre\" AS \"Nombre0\"
+    FROM \"Producto\" AS \"p\"
+    INNER JOIN \"ModeloProducto\" AS \"m\" ON \"p\".\"ModeloId\" = \"m\".\"Id\"
+    WHERE \"p\".\"Id\" = @__id_0
+    LIMIT 1
+) AS \"t\"
+LEFT JOIN \"Activo\" AS \"a\" ON \"t\".\"Id\" = \"a\".\"ProductoId\"
+ORDER BY \"t\".\"Id\", \"t\".\"Id0\""
+[13-01-2024 18:13:23.214 -07:00 INF] Executing "ObjectResult", writing value of type '"API.DTOs.ProductoDto"'.
+[13-01-2024 18:13:23.214 -07:00 INF] Executed action "API.Controllers.ProductoController.Get (API)" in 52.8285ms
+[13-01-2024 18:13:23.214 -07:00 INF] Executed endpoint '"API.Controllers.ProductoController.Get (API)"'
+[13-01-2024 18:13:23.214 -07:00 INF] Request finished HTTP/1.1 GET http://localhost:5045/api/producto/1 - - - 200 - application/json;+charset=utf-8 55.2750ms
+[13-01-2024 18:13:36.319 -07:00 INF] Request starting HTTP/1.1 GET http://localhost:5045/apiproducto/1 - -
+[13-01-2024 18:13:36.319 -07:00 INF] CORS policy execution successful.
+[13-01-2024 18:13:36.320 -07:00 INF] CORS policy execution successful.
+[13-01-2024 18:13:36.320 -07:00 INF] Executing endpoint '"API.Controllers.ErrorsController.Error (API)"'
+[13-01-2024 18:13:36.320 -07:00 INF] Route matched with "{action = \"Error\", controller = \"Errors\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Error(Int32)" on controller "API.Controllers.ErrorsController" ("API").
+[13-01-2024 18:13:36.320 -07:00 INF] Executing "ObjectResult", writing value of type '"API.Helpers.ApiResponse"'.
+[13-01-2024 18:13:36.320 -07:00 INF] Executed action "API.Controllers.ErrorsController.Error (API)" in 0.5974ms
+[13-01-2024 18:13:36.321 -07:00 INF] Executed endpoint '"API.Controllers.ErrorsController.Error (API)"'
+[13-01-2024 18:13:36.321 -07:00 INF] Request finished HTTP/1.1 GET http://localhost:5045/apiproducto/1 - - - 404 - application/json;+charset=utf-8 1.8710ms
+[13-01-2024 18:13:45.979 -07:00 INF] Request starting HTTP/1.1 GET http://localhost:5045/api/producto/1 - -
+[13-01-2024 18:13:45.980 -07:00 INF] CORS policy execution successful.
+[13-01-2024 18:13:45.980 -07:00 INF] Executing endpoint '"API.Controllers.ProductoController.Get (API)"'
+[13-01-2024 18:13:45.980 -07:00 INF] Route matched with "{action = \"Get\", controller = \"Producto\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[API.DTOs.ProductoDto]] Get(Int32)" on controller "API.Controllers.ProductoController" ("API").
+[13-01-2024 18:13:45.983 -07:00 INF] Executed DbCommand ("0"ms) [Parameters=["@__id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT \"t\".\"Id\", \"t\".\"ModeloId\", \"t\".\"Nombre\", \"t\".\"Id0\", \"t\".\"MarcaProductoId\", \"t\".\"Nombre0\", \"a\".\"Id\", \"a\".\"Comentarios\", \"a\".\"FechaCreacion\", \"a\".\"FechaModificacion\", \"a\".\"NoFactura\", \"a\".\"NoInventario\", \"a\".\"NoSerie\", \"a\".\"ProductoId\", \"a\".\"ProveedorId\", \"a\".\"TipoActivoId\"
+FROM (
+    SELECT \"p\".\"Id\", \"p\".\"ModeloId\", \"p\".\"Nombre\", \"m\".\"Id\" AS \"Id0\", \"m\".\"MarcaProductoId\", \"m\".\"Nombre\" AS \"Nombre0\"
+    FROM \"Producto\" AS \"p\"
+    INNER JOIN \"ModeloProducto\" AS \"m\" ON \"p\".\"ModeloId\" = \"m\".\"Id\"
+    WHERE \"p\".\"Id\" = @__id_0
+    LIMIT 1
+) AS \"t\"
+LEFT JOIN \"Activo\" AS \"a\" ON \"t\".\"Id\" = \"a\".\"ProductoId\"
+ORDER BY \"t\".\"Id\", \"t\".\"Id0\""
+[13-01-2024 18:13:45.984 -07:00 INF] Executing "ObjectResult", writing value of type '"API.DTOs.ProductoDto"'.
+[13-01-2024 18:13:45.984 -07:00 INF] Executed action "API.Controllers.ProductoController.Get (API)" in 4.0465ms
+[13-01-2024 18:13:45.984 -07:00 INF] Executed endpoint '"API.Controllers.ProductoController.Get (API)"'
+[13-01-2024 18:13:45.984 -07:00 INF] Request finished HTTP/1.1 GET http://localhost:5045/api/producto/1 - - - 200 - application/json;+charset=utf-8 5.0196ms
+[13-01-2024 18:13:50.937 -07:00 INF] Request starting HTTP/1.1 GET http://localhost:5045/api/producto/1 - -
+[13-01-2024 18:13:50.938 -07:00 INF] CORS policy execution successful.
+[13-01-2024 18:13:50.938 -07:00 INF] Executing endpoint '"API.Controllers.ProductoController.Get (API)"'
+[13-01-2024 18:13:50.938 -07:00 INF] Route matched with "{action = \"Get\", controller = \"Producto\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[API.DTOs.ProductoDto]] Get(Int32)" on controller "API.Controllers.ProductoController" ("API").
+[13-01-2024 18:13:50.940 -07:00 INF] Executed DbCommand ("0"ms) [Parameters=["@__id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT \"t\".\"Id\", \"t\".\"ModeloId\", \"t\".\"Nombre\", \"t\".\"Id0\", \"t\".\"MarcaProductoId\", \"t\".\"Nombre0\", \"a\".\"Id\", \"a\".\"Comentarios\", \"a\".\"FechaCreacion\", \"a\".\"FechaModificacion\", \"a\".\"NoFactura\", \"a\".\"NoInventario\", \"a\".\"NoSerie\", \"a\".\"ProductoId\", \"a\".\"ProveedorId\", \"a\".\"TipoActivoId\"
+FROM (
+    SELECT \"p\".\"Id\", \"p\".\"ModeloId\", \"p\".\"Nombre\", \"m\".\"Id\" AS \"Id0\", \"m\".\"MarcaProductoId\", \"m\".\"Nombre\" AS \"Nombre0\"
+    FROM \"Producto\" AS \"p\"
+    INNER JOIN \"ModeloProducto\" AS \"m\" ON \"p\".\"ModeloId\" = \"m\".\"Id\"
+    WHERE \"p\".\"Id\" = @__id_0
+    LIMIT 1
+) AS \"t\"
+LEFT JOIN \"Activo\" AS \"a\" ON \"t\".\"Id\" = \"a\".\"ProductoId\"
+ORDER BY \"t\".\"Id\", \"t\".\"Id0\""
+[13-01-2024 18:13:50.940 -07:00 INF] Executing "ObjectResult", writing value of type '"API.DTOs.ProductoDto"'.
+[13-01-2024 18:13:50.940 -07:00 INF] Executed action "API.Controllers.ProductoController.Get (API)" in 2.1651ms
+[13-01-2024 18:13:50.940 -07:00 INF] Executed endpoint '"API.Controllers.ProductoController.Get (API)"'
+[13-01-2024 18:13:50.941 -07:00 INF] Request finished HTTP/1.1 GET http://localhost:5045/api/producto/1 - - - 200 - application/json;+charset=utf-8 3.2332ms
+[13-01-2024 18:13:51.681 -07:00 INF] Request starting HTTP/1.1 GET http://localhost:5045/api/producto/1 - -
+[13-01-2024 18:13:51.681 -07:00 INF] CORS policy execution successful.
+[13-01-2024 18:13:51.682 -07:00 INF] Executing endpoint '"API.Controllers.ProductoController.Get (API)"'
+[13-01-2024 18:13:51.682 -07:00 INF] Route matched with "{action = \"Get\", controller = \"Producto\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[API.DTOs.ProductoDto]] Get(Int32)" on controller "API.Controllers.ProductoController" ("API").
+[13-01-2024 18:13:51.684 -07:00 INF] Executed DbCommand ("0"ms) [Parameters=["@__id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT \"t\".\"Id\", \"t\".\"ModeloId\", \"t\".\"Nombre\", \"t\".\"Id0\", \"t\".\"MarcaProductoId\", \"t\".\"Nombre0\", \"a\".\"Id\", \"a\".\"Comentarios\", \"a\".\"FechaCreacion\", \"a\".\"FechaModificacion\", \"a\".\"NoFactura\", \"a\".\"NoInventario\", \"a\".\"NoSerie\", \"a\".\"ProductoId\", \"a\".\"ProveedorId\", \"a\".\"TipoActivoId\"
+FROM (
+    SELECT \"p\".\"Id\", \"p\".\"ModeloId\", \"p\".\"Nombre\", \"m\".\"Id\" AS \"Id0\", \"m\".\"MarcaProductoId\", \"m\".\"Nombre\" AS \"Nombre0\"
+    FROM \"Producto\" AS \"p\"
+    INNER JOIN \"ModeloProducto\" AS \"m\" ON \"p\".\"ModeloId\" = \"m\".\"Id\"
+    WHERE \"p\".\"Id\" = @__id_0
+    LIMIT 1
+) AS \"t\"
+LEFT JOIN \"Activo\" AS \"a\" ON \"t\".\"Id\" = \"a\".\"ProductoId\"
+ORDER BY \"t\".\"Id\", \"t\".\"Id0\""
+[13-01-2024 18:13:51.685 -07:00 INF] Executing "ObjectResult", writing value of type '"API.DTOs.ProductoDto"'.
+[13-01-2024 18:13:51.685 -07:00 INF] Executed action "API.Controllers.ProductoController.Get (API)" in 3.0992ms
+[13-01-2024 18:13:51.685 -07:00 INF] Executed endpoint '"API.Controllers.ProductoController.Get (API)"'
+[13-01-2024 18:13:51.685 -07:00 INF] Request finished HTTP/1.1 GET http://localhost:5045/api/producto/1 - - - 200 - application/json;+charset=utf-8 4.1790ms
+[13-01-2024 18:13:51.890 -07:00 INF] Request starting HTTP/1.1 GET http://localhost:5045/api/producto/1 - -
+[13-01-2024 18:13:51.891 -07:00 INF] CORS policy execution successful.
+[13-01-2024 18:13:51.891 -07:00 INF] Executing endpoint '"API.Controllers.ProductoController.Get (API)"'
+[13-01-2024 18:13:51.891 -07:00 INF] Route matched with "{action = \"Get\", controller = \"Producto\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[API.DTOs.ProductoDto]] Get(Int32)" on controller "API.Controllers.ProductoController" ("API").
+[13-01-2024 18:13:51.892 -07:00 INF] Executed DbCommand ("0"ms) [Parameters=["@__id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT \"t\".\"Id\", \"t\".\"ModeloId\", \"t\".\"Nombre\", \"t\".\"Id0\", \"t\".\"MarcaProductoId\", \"t\".\"Nombre0\", \"a\".\"Id\", \"a\".\"Comentarios\", \"a\".\"FechaCreacion\", \"a\".\"FechaModificacion\", \"a\".\"NoFactura\", \"a\".\"NoInventario\", \"a\".\"NoSerie\", \"a\".\"ProductoId\", \"a\".\"ProveedorId\", \"a\".\"TipoActivoId\"
+FROM (
+    SELECT \"p\".\"Id\", \"p\".\"ModeloId\", \"p\".\"Nombre\", \"m\".\"Id\" AS \"Id0\", \"m\".\"MarcaProductoId\", \"m\".\"Nombre\" AS \"Nombre0\"
+    FROM \"Producto\" AS \"p\"
+    INNER JOIN \"ModeloProducto\" AS \"m\" ON \"p\".\"ModeloId\" = \"m\".\"Id\"
+    WHERE \"p\".\"Id\" = @__id_0
+    LIMIT 1
+) AS \"t\"
+LEFT JOIN \"Activo\" AS \"a\" ON \"t\".\"Id\" = \"a\".\"ProductoId\"
+ORDER BY \"t\".\"Id\", \"t\".\"Id0\""
+[13-01-2024 18:13:51.893 -07:00 INF] Executing "ObjectResult", writing value of type '"API.DTOs.ProductoDto"'.
+[13-01-2024 18:13:51.893 -07:00 INF] Executed action "API.Controllers.ProductoController.Get (API)" in 2.2903ms
+[13-01-2024 18:13:51.893 -07:00 INF] Executed endpoint '"API.Controllers.ProductoController.Get (API)"'
+[13-01-2024 18:13:51.894 -07:00 INF] Request finished HTTP/1.1 GET http://localhost:5045/api/producto/1 - - - 200 - application/json;+charset=utf-8 3.3755ms
+[13-01-2024 18:13:52.114 -07:00 INF] Request starting HTTP/1.1 GET http://localhost:5045/api/producto/1 - -
+[13-01-2024 18:13:52.114 -07:00 INF] CORS policy execution successful.
+[13-01-2024 18:13:52.114 -07:00 INF] Executing endpoint '"API.Controllers.ProductoController.Get (API)"'
+[13-01-2024 18:13:52.114 -07:00 INF] Route matched with "{action = \"Get\", controller = \"Producto\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[API.DTOs.ProductoDto]] Get(Int32)" on controller "API.Controllers.ProductoController" ("API").
+[13-01-2024 18:13:52.116 -07:00 INF] Executed DbCommand ("0"ms) [Parameters=["@__id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT \"t\".\"Id\", \"t\".\"ModeloId\", \"t\".\"Nombre\", \"t\".\"Id0\", \"t\".\"MarcaProductoId\", \"t\".\"Nombre0\", \"a\".\"Id\", \"a\".\"Comentarios\", \"a\".\"FechaCreacion\", \"a\".\"FechaModificacion\", \"a\".\"NoFactura\", \"a\".\"NoInventario\", \"a\".\"NoSerie\", \"a\".\"ProductoId\", \"a\".\"ProveedorId\", \"a\".\"TipoActivoId\"
+FROM (
+    SELECT \"p\".\"Id\", \"p\".\"ModeloId\", \"p\".\"Nombre\", \"m\".\"Id\" AS \"Id0\", \"m\".\"MarcaProductoId\", \"m\".\"Nombre\" AS \"Nombre0\"
+    FROM \"Producto\" AS \"p\"
+    INNER JOIN \"ModeloProducto\" AS \"m\" ON \"p\".\"ModeloId\" = \"m\".\"Id\"
+    WHERE \"p\".\"Id\" = @__id_0
+    LIMIT 1
+) AS \"t\"
+LEFT JOIN \"Activo\" AS \"a\" ON \"t\".\"Id\" = \"a\".\"ProductoId\"
+ORDER BY \"t\".\"Id\", \"t\".\"Id0\""
+[13-01-2024 18:13:52.116 -07:00 INF] Executing "ObjectResult", writing value of type '"API.DTOs.ProductoDto"'.
+[13-01-2024 18:13:52.116 -07:00 INF] Executed action "API.Controllers.ProductoController.Get (API)" in 2.2348ms
+[13-01-2024 18:13:52.116 -07:00 INF] Executed endpoint '"API.Controllers.ProductoController.Get (API)"'
+[13-01-2024 18:13:52.117 -07:00 INF] Request finished HTTP/1.1 GET http://localhost:5045/api/producto/1 - - - 200 - application/json;+charset=utf-8 3.1318ms
+[13-01-2024 18:13:52.308 -07:00 INF] Request starting HTTP/1.1 GET http://localhost:5045/api/producto/1 - -
+[13-01-2024 18:13:52.308 -07:00 INF] CORS policy execution successful.
+[13-01-2024 18:13:52.308 -07:00 INF] Executing endpoint '"API.Controllers.ProductoController.Get (API)"'
+[13-01-2024 18:13:52.308 -07:00 INF] Route matched with "{action = \"Get\", controller = \"Producto\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[API.DTOs.ProductoDto]] Get(Int32)" on controller "API.Controllers.ProductoController" ("API").
+[13-01-2024 18:13:52.310 -07:00 INF] Executed DbCommand ("0"ms) [Parameters=["@__id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT \"t\".\"Id\", \"t\".\"ModeloId\", \"t\".\"Nombre\", \"t\".\"Id0\", \"t\".\"MarcaProductoId\", \"t\".\"Nombre0\", \"a\".\"Id\", \"a\".\"Comentarios\", \"a\".\"FechaCreacion\", \"a\".\"FechaModificacion\", \"a\".\"NoFactura\", \"a\".\"NoInventario\", \"a\".\"NoSerie\", \"a\".\"ProductoId\", \"a\".\"ProveedorId\", \"a\".\"TipoActivoId\"
+FROM (
+    SELECT \"p\".\"Id\", \"p\".\"ModeloId\", \"p\".\"Nombre\", \"m\".\"Id\" AS \"Id0\", \"m\".\"MarcaProductoId\", \"m\".\"Nombre\" AS \"Nombre0\"
+    FROM \"Producto\" AS \"p\"
+    INNER JOIN \"ModeloProducto\" AS \"m\" ON \"p\".\"ModeloId\" = \"m\".\"Id\"
+    WHERE \"p\".\"Id\" = @__id_0
+    LIMIT 1
+) AS \"t\"
+LEFT JOIN \"Activo\" AS \"a\" ON \"t\".\"Id\" = \"a\".\"ProductoId\"
+ORDER BY \"t\".\"Id\", \"t\".\"Id0\""
+[13-01-2024 18:13:52.310 -07:00 INF] Executing "ObjectResult", writing value of type '"API.DTOs.ProductoDto"'.
+[13-01-2024 18:13:52.310 -07:00 INF] Executed action "API.Controllers.ProductoController.Get (API)" in 1.8648ms
+[13-01-2024 18:13:52.310 -07:00 INF] Executed endpoint '"API.Controllers.ProductoController.Get (API)"'
+[13-01-2024 18:13:52.311 -07:00 INF] Request finished HTTP/1.1 GET http://localhost:5045/api/producto/1 - - - 200 - application/json;+charset=utf-8 2.8430ms
+[13-01-2024 18:13:52.498 -07:00 INF] Request starting HTTP/1.1 GET http://localhost:5045/api/producto/1 - -
+[13-01-2024 18:13:52.499 -07:00 INF] CORS policy execution successful.
+[13-01-2024 18:13:52.499 -07:00 INF] Executing endpoint '"API.Controllers.ProductoController.Get (API)"'
+[13-01-2024 18:13:52.499 -07:00 INF] Route matched with "{action = \"Get\", controller = \"Producto\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[API.DTOs.ProductoDto]] Get(Int32)" on controller "API.Controllers.ProductoController" ("API").
+[13-01-2024 18:13:52.500 -07:00 INF] Executed DbCommand ("0"ms) [Parameters=["@__id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT \"t\".\"Id\", \"t\".\"ModeloId\", \"t\".\"Nombre\", \"t\".\"Id0\", \"t\".\"MarcaProductoId\", \"t\".\"Nombre0\", \"a\".\"Id\", \"a\".\"Comentarios\", \"a\".\"FechaCreacion\", \"a\".\"FechaModificacion\", \"a\".\"NoFactura\", \"a\".\"NoInventario\", \"a\".\"NoSerie\", \"a\".\"ProductoId\", \"a\".\"ProveedorId\", \"a\".\"TipoActivoId\"
+FROM (
+    SELECT \"p\".\"Id\", \"p\".\"ModeloId\", \"p\".\"Nombre\", \"m\".\"Id\" AS \"Id0\", \"m\".\"MarcaProductoId\", \"m\".\"Nombre\" AS \"Nombre0\"
+    FROM \"Producto\" AS \"p\"
+    INNER JOIN \"ModeloProducto\" AS \"m\" ON \"p\".\"ModeloId\" = \"m\".\"Id\"
+    WHERE \"p\".\"Id\" = @__id_0
+    LIMIT 1
+) AS \"t\"
+LEFT JOIN \"Activo\" AS \"a\" ON \"t\".\"Id\" = \"a\".\"ProductoId\"
+ORDER BY \"t\".\"Id\", \"t\".\"Id0\""
+[13-01-2024 18:13:52.501 -07:00 INF] Executing "ObjectResult", writing value of type '"API.DTOs.ProductoDto"'.
+[13-01-2024 18:13:52.501 -07:00 INF] Executed action "API.Controllers.ProductoController.Get (API)" in 1.9892ms
+[13-01-2024 18:13:52.501 -07:00 INF] Executed endpoint '"API.Controllers.ProductoController.Get (API)"'
+[13-01-2024 18:13:52.501 -07:00 INF] Request finished HTTP/1.1 GET http://localhost:5045/api/producto/1 - - - 200 - application/json;+charset=utf-8 3.4883ms
+[13-01-2024 18:15:46.758 -07:00 INF] Application is shutting down...
